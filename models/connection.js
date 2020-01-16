@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
  * This will need to change for every new project you create.
  *
  */
-const connectionString = process.env.MONGODB_URI || "mongodb://localhost/<db-name>";
+const connectionString = process.env.MONGODB_URI || "mongodb://localhost/colton";
 
 
 /* Step 2
@@ -18,7 +18,7 @@ const connectionString = process.env.MONGODB_URI || "mongodb://localhost/<db-nam
  *
  * NOTE: newUrlParser diables a deprecation warning
  */
-mongoose.connect(connectionString, { useNewUrlParser: true})
+mongoose.connect(connectionString, { useNewUrlParser: true })
   .then(() => {
     console.log("connected to mongo at: " + connectionString);
   });
