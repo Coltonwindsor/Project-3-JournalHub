@@ -1,14 +1,14 @@
 const express = require('express')
 
 
-const coltonApi = require('../models/colton.js')
+const generalApi = require('../models/general.js')
 
-const coltonRouter = express.Router()
+const generalRouter = express.Router()
 
-coltonRouter.get('/', (req, res) => {
-  coltonApi.getAllColtons()
-    .then((allColtons) => {
-      res.json(allColtons)
+generalRouter.get('/', (req, res) => {
+  generalApi.getAllGenerals()
+    .then((allGenerals) => {
+      res.json(allGenerals)
     })
     .catch((error) => {
       console.log(error)
@@ -16,12 +16,12 @@ coltonRouter.get('/', (req, res) => {
     })
 })
 
-coltonRouter.get('/:id', (req, res) => {
-  const coltonId = req.params.id
+generalRouter.get('/:id', (req, res) => {
+  const generalId = req.params.id
 
-  coltonApi.getColtonById(coltonId)
-    .then((colton) => {
-      res.json(colton)
+  generalApi.getGeneralById(generalId)
+    .then((general) => {
+      res.json(general)
     })
     .catch((error) => {
       console.log(error)
@@ -29,12 +29,12 @@ coltonRouter.get('/:id', (req, res) => {
     })
 })
 
-coltonRouter.post('/', (req, res) => {
-  const newColton = req.body
+generalRouter.post('/', (req, res) => {
+  const newGeneral = req.body
 
-  coltonApi.createColton(newColton)
+  generalApi.createGeneral(newGeneral)
     .then(() => {
-      res.json('colton created')
+      res.json('general created')
     })
     .catch((error) => {
       console.log(error)
@@ -43,13 +43,13 @@ coltonRouter.post('/', (req, res) => {
 
 })
 
-coltonRouter.put('/:id', (req, res) => {
-  const coltonId = req.params.id
-  const coltonData = req.body
+generalRouter.put('/:id', (req, res) => {
+  const generalId = req.params.id
+  const generalData = req.body
 
-  coltonApi.updateColton(coltonId, coltonData)
+  generalApi.updateGeneral(generalId, generalData)
     .then(() => {
-      res.json('updated colton')
+      res.json('updated general')
     })
     .catch((error) => {
       console.log(error)
@@ -57,10 +57,10 @@ coltonRouter.put('/:id', (req, res) => {
     })
 })
 
-coltonRouter.delete('/:id', (req, res) => {
-  const coltonId = req.params.id
+generalRouter.delete('/:id', (req, res) => {
+  const generalId = req.params.id
 
-  coltonApi.deleteColton(coltonId)
+  generalApi.deleteGeneral(generalId)
     .then(() => {
       res.json("deleted")
     })
@@ -72,5 +72,5 @@ coltonRouter.delete('/:id', (req, res) => {
 
 
 module.exports = {
-  coltonRouter
+  generalRouter
 }

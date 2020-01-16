@@ -1,37 +1,37 @@
 const mongoose = require('./connection.js')
 
-const ColtonSchema = new mongoose.Schema({
+const GeneralSchema = new mongoose.Schema({
   name: String,
   description: String,
 })
 
-const ColtonCollection = mongoose.model('colton', ColtonSchema)
+const GeneralCollection = mongoose.model('general', GeneralSchema)
 
-const getColtonById = (id) => {
-  return ColtonCollection.findById(id)
+const getGeneralById = (id) => {
+  return GeneralCollection.findById(id)
 }
 
-const getAllColtons = () => {
-  return ColtonCollection.find({})
+const getAllGenerals = () => {
+  return GeneralCollection.find({})
 }
 
-const createColton = (newColton) => {
-  return ColtonCollection.create(newColton)
+const createGeneral = (newGeneral) => {
+  return GeneralCollection.create(newGeneral)
 }
 
-const updateColton = (id, updatedColton) => {
-  return ColtonCollection.updateOne({ _id: id }, updatedColton)
+const updateGeneral = (id, updatedGeneral) => {
+  return GeneralCollection.updateOne({ _id: id }, updatedGeneral)
 }
 
-const deleteColton = (id) => {
-  return ColtonCollection.deleteOne({ _id: id })
+const deleteGeneral = (id) => {
+  return GeneralCollection.deleteOne({ _id: id })
 }
 
 
 module.exports = {
-  getColtonById,
-  getAllColtons,
-  createColton,
-  updateColton,
-  deleteColton,
+  getGeneralById,
+  getAllGenerals,
+  createGeneral,
+  updateGeneral,
+  deleteGeneral,
 }
