@@ -16,7 +16,10 @@ const app = express()
  * import routers from controllers/
  *
  */
-const { coltonRouter } = require('./controllers/colton.js')
+const { generalRouter } = require('./controllers/general.js')
+const { foodRouter } = require('./controllers/food.js')
+const { dreamRouter } = require('./controllers/dream.js')
+const { exerciseRouter } = require('./controllers/exercise.js')
 
 
 /* Step 3
@@ -49,7 +52,11 @@ app.use(express.static(`${__dirname}/client/build`))
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use('/api/colton', coltonRouter)
+app.use('/api/general', generalRouter)
+app.use('/api/food', foodRouter)
+app.use('/api/dream', dreamRouter)
+app.use('/api/exercise', exerciseRouter)
+
 
 /* Step 5
  *
