@@ -4,6 +4,7 @@ export default class SingleColton extends Component {
     state = {
 
     }
+
     componentDidMount() {
         axios.get('/api/helloworld')
             .then((res) => {
