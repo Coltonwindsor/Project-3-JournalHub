@@ -6,8 +6,9 @@ import { Redirect } from 'react-router-dom'
 export default class SingleGeneral extends Component {
     state = {
         general: {
-            name: '',
-            description: ''
+            date: '',
+            title: '',
+            entry: ''
         },
         redirect: false
     }
@@ -43,24 +44,30 @@ export default class SingleGeneral extends Component {
     render() {
         return (
             <div>
-                {this.state.redirect === true ? <Redirect to='/' /> : null}
+                {this.state.redirect === true ? <Redirect to='/general' /> : null}
                 <h1>Single General Thought Page </h1>
-                <div>{this.state.general.name}</div>
-                <div>{this.state.general.description}</div>
+                <div>{this.state.general.date}</div>
+                <div>{this.state.general.title}</div>
+                <div>{this.state.general.entry}</div>
                 <form onSubmit={this.onSubmit}>
                     <input onChange={this.onChange}
-                        type="text"
-                        name="name"
-                        placeholder='name'
-                        value={this.state.general.name} />
+                        type="date"
+                        name="date"
+                        placeholder='date'
+                        value={this.state.general.date} />
                     <input onChange={this.onChange}
                         type="text"
-                        name="description"
-                        placeholder='description'
-                        value={this.state.general.description} />
+                        name="title"
+                        placeholder='title'
+                        value={this.state.general.title} />
+                    <input onChange={this.onChange}
+                        type="text"
+                        name="entry"
+                        placeholder='entry'
+                        value={this.state.general.entry} />
 
                     <input type="submit"
-                        value="Update General" />
+                        value="Update Entry" />
                 </form>
                 <button onClick={this.deleteGeneral}>Delete Entry</button>
             </div>

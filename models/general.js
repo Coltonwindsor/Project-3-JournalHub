@@ -1,8 +1,9 @@
 const mongoose = require('./connection.js')
 
 const GeneralSchema = new mongoose.Schema({
-  name: String,
-  description: String,
+  date: String,
+  title: String,
+  entry: String,
 })
 
 const GeneralCollection = mongoose.model('general', GeneralSchema)

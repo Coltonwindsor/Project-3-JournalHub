@@ -6,8 +6,9 @@ export default class General extends Component {
     state = {
         generals: [],
         newGeneral: {
-            name: '',
-            description: ''
+            date: '',
+            title: '',
+            entry: ''
         }
     }
     componentDidMount() {
@@ -49,17 +50,25 @@ export default class General extends Component {
                 <h1>General Thoughts Journal</h1>
                 <form onSubmit={this.onSubmit}>
                     <input
-                        type='text'
-                        placeholder='name'
-                        name='name'
+                        type='date'
+                        placeholder='date'
+                        name='date'
                         onChange={this.onChange}
                         vlaue={this.state.newGeneral.name}
                     >
                     </input>
                     <input
                         type='text'
-                        placeholder='description'
-                        name='description'
+                        placeholder='title'
+                        name='title'
+                        onChange={this.onChange}
+                        vlaue={this.state.newGeneral.name}
+                    >
+                    </input>
+                    <input
+                        type='text'
+                        placeholder='entry'
+                        name='entry'
                         onChange={this.onChange}
                         vlaue={this.state.newGeneral.description}
                     >
@@ -68,7 +77,7 @@ export default class General extends Component {
                 </form>
                 {this.state.generals.map((general) => {
                     return (<Link to={`/general/${general._id}`}>
-                        <div>{general.name}</div>
+                        <div>{general.date}, {general.title}</div>
                     </Link>)
                 })}
             </div>
