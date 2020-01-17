@@ -1,8 +1,15 @@
 const mongoose = require('./connection.js')
 
 const FoodSchema = new mongoose.Schema({
-  name: String,
-  description: String,
+  date: String,
+  breakfast: String,
+  breakfastCal: Number,
+  lunch: String,
+  lunchCal: Number,
+  dinner: String,
+  dinnerCal: Number,
+  snacks: String,
+  snackCal: Number
 })
 
 const FoodCollection = mongoose.model('food', FoodSchema)

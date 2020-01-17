@@ -6,8 +6,15 @@ export default class Food extends Component {
     state = {
         foods: [],
         newFood: {
-            name: '',
-            description: ''
+            date: '',
+            breakfast: '',
+            breakfastCal: 0,
+            lunch: '',
+            lunchCal: 0,
+            dinner: '',
+            dinnerCal: 0,
+            snacks: '',
+            snackCal: 0
         }
     }
     componentDidMount() {
@@ -36,8 +43,15 @@ export default class Food extends Component {
                 this.reloadFoodList()
                 const copyOfState = { ...this.state }
                 copyOfState.newFood = {
-                    name: '',
-                    description: ''
+                    date: '',
+                    breakfast: '',
+                    breakfastCal: 0,
+                    lunch: '',
+                    lunchCal: 0,
+                    dinner: '',
+                    dinnerCal: 0,
+                    snacks: '',
+                    snackCal: 0
                 }
                 this.setState(copyOfState)
             })
@@ -49,26 +63,83 @@ export default class Food extends Component {
                 <h1>Food Journal</h1>
                 <form onSubmit={this.onSubmit}>
                     <input
-                        type='text'
-                        placeholder='name'
-                        name='name'
+                        type='date'
+                        placeholder='date'
+                        name='date'
                         onChange={this.onChange}
-                        vlaue={this.state.newFood.name}
+                        vlaue={this.state.newFood.date}
                     >
                     </input>
                     <input
                         type='text'
-                        placeholder='description'
-                        name='description'
+                        placeholder='breakfast'
+                        name='breakfast'
                         onChange={this.onChange}
-                        vlaue={this.state.newFood.description}
+                        vlaue={this.state.newFood.breakfast}
                     >
                     </input>
+                    <input
+                        type='number'
+                        placeholder='breakfast calories'
+                        name='breakfastCal'
+                        onChange={this.onChange}
+                        vlaue={this.state.newFood.breakfastCal}
+                    >
+                    </input>
+                    <input
+                        type='text'
+                        placeholder='lunch'
+                        name='lunch'
+                        onChange={this.onChange}
+                        vlaue={this.state.newFood.lunch}
+                    >
+                    </input>
+                    <input
+                        type='number'
+                        placeholder='lunch calories'
+                        name='lunchCal'
+                        onChange={this.onChange}
+                        vlaue={this.state.newFood.lunchCal}
+                    >
+                    </input>
+                    <input
+                        type='text'
+                        placeholder='dinner'
+                        name='dinner'
+                        onChange={this.onChange}
+                        vlaue={this.state.newFood.dinner}
+                    >
+                    </input>
+                    <input
+                        type='number'
+                        placeholder='dinner calories'
+                        name='dinnerCal'
+                        onChange={this.onChange}
+                        vlaue={this.state.newFood.dinnerCal}
+                    >
+                    </input>
+                    <input
+                        type='text'
+                        placeholder='snacks'
+                        name='snacks'
+                        onChange={this.onChange}
+                        vlaue={this.state.newFood.snacks}
+                    >
+                    </input>
+                    <input
+                        type='number'
+                        placeholder='snack calories'
+                        name='snackCal'
+                        onChange={this.onChange}
+                        vlaue={this.state.newFood.snackCal}
+                    >
+                    </input>
+
                     <input type="submit" vlaue="Create a Food"></input>
                 </form>
                 {this.state.foods.map((food) => {
                     return (<Link to={`/food/${food._id}`}>
-                        <div>{food.name}</div>
+                        <div>{food.date}</div>
                     </Link>)
                 })}
             </div>
