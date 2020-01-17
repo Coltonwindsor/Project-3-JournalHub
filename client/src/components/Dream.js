@@ -58,7 +58,7 @@ export default class Dream extends Component {
                     </input>
                     <input
                         type='text'
-                        placeholder='name'
+                        placeholder='description'
                         name='description'
                         onChange={this.onChange}
                         vlaue={this.state.newDream.description}
@@ -67,7 +67,7 @@ export default class Dream extends Component {
                     <input type="submit" vlaue="Create a Dream"></input>
                 </form>
                 {this.state.dreams.map((dream) => {
-                    return (<Link to={`/${dream._id}`}>
+                    return (<Link to={`/dream/${dream._id}`}>
                         <div>{dream.name}</div>
                     </Link>)
                 })}
