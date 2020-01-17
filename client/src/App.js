@@ -6,7 +6,7 @@ import General from './components/General'
 import Dream from './components/Dream'
 import SingleDream from './components/SingleDream'
 import Food from './components/Food'
-// import SingleFood from './components/SingleFood'
+import SingleFood from './components/SingleFood'
 // import Exercise from './components/Exercise'
 // import SingleExercise from './components/SingleExercise'
 
@@ -19,7 +19,7 @@ class App extends Component {
             <Route exact path="/general" component={General} />
             {/* <Route exact path="/general/:generalId" component={SingleGeneral} /> */}
             <Route exact path="/food" component={Food} />
-            {/* <Route exact path="/food/:foodId" component={SingleFood} /> */}
+            <Route exact path="/food/:foodId" component={SingleFood} />
             <Route exact path="/dream" component={Dream} />
             <Route exact path="/dream/:dreamId" component={SingleDream} />
             {/* <Route exact path="/exercise" component={Exercise} />
