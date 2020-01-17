@@ -19,7 +19,6 @@ export default class SingleFood extends Component {
     }
 
     onChange = (evt) => {
-        console.log('onChange called')
         const value = evt.target.value
         const name = evt.target.name
         const copyOfState = { ...this.state }
