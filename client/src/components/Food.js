@@ -139,7 +139,7 @@ export default class Food extends Component {
                 </form>
                 {this.state.foods.map((food) => {
                     return (<Link to={`/food/${food._id}`}>
-                        <div>{food.date}</div>
+                        <div>{food.date} - Total Calories: {food.breakfastCal + food.lunchCal + food.dinnerCal + food.snackCal}</div>
                     </Link>)
                 })}
             </div>
