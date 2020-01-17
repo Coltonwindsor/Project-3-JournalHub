@@ -1,13 +1,14 @@
 Project - 3
 
 Link to app:
-APP NAME GOES HERE
+Journal Hub!
+A place to create and store your thoughts and habbits!
 
 Problem Statement:
-PROBLEM GOES HERE
+Some people love to eat. Some people love to sleep. Some people love to exercise, and some people love to daydream. Some people love to do all of those things and then write about them. Those that habitually journal about many different things have a problem - they lack an easy way to store and sort all of their material.
 
 Target users and purpose:
-HOW MY APP SOLVES THE PROBLEM GOES HERE
+Journal Hub provides a platform for avid journalers to store all their journals in one place, as well as create, edit and delete entries.
 
 LINK TO GITHUB GOES HERE:
 https://github.com/Coltonwindsor/Project-3
