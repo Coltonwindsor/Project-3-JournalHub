@@ -15,7 +15,8 @@ export default class Food extends Component {
             dinnerCal: 0,
             snacks: '',
             snackCal: 0
-        }
+        },
+        addFoodInvisable: false
     }
     componentDidMount() {
         axios.get('/api/food')
@@ -41,6 +42,7 @@ export default class Food extends Component {
         axios.post('/api/food', this.state.newFood)
             .then(() => {
                 this.reloadFoodList()
+                this.toggleAddFoodForm()
                 const copyOfState = { ...this.state }
                 copyOfState.newFood = {
                     date: '',
@@ -56,92 +58,103 @@ export default class Food extends Component {
                 this.setState(copyOfState)
             })
     }
+    toggleAddFoodForm = () => {
+        const toggle = !this.state.addFoodInvisable;
+        this.setState({ addFoodInvisable: toggle })
+    }
 
     render() {
+
+        const allFoods = this.state.foods.map((food) => {
+            return (<Link to={`/food/${food._id}`}>
+                <div>{food.date} - Total Calories: {food.breakfastCal + food.lunchCal + food.dinnerCal + food.snackCal}</div>
+            </Link>)
+        })
         return (
             <div>
                 <h1>Food Journal</h1>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type='date'
-                        placeholder='date'
-                        name='date'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.date}
-                    >
-                    </input>
-                    <input
-                        type='text'
-                        placeholder='breakfast'
-                        name='breakfast'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.breakfast}
-                    >
-                    </input>
-                    <input
-                        type='number'
-                        placeholder='breakfast calories'
-                        name='breakfastCal'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.breakfastCal}
-                    >
-                    </input>
-                    <input
-                        type='text'
-                        placeholder='lunch'
-                        name='lunch'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.lunch}
-                    >
-                    </input>
-                    <input
-                        type='number'
-                        placeholder='lunch calories'
-                        name='lunchCal'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.lunchCal}
-                    >
-                    </input>
-                    <input
-                        type='text'
-                        placeholder='dinner'
-                        name='dinner'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.dinner}
-                    >
-                    </input>
-                    <input
-                        type='number'
-                        placeholder='dinner calories'
-                        name='dinnerCal'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.dinnerCal}
-                    >
-                    </input>
-                    <input
-                        type='text'
-                        placeholder='snacks'
-                        name='snacks'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.snacks}
-                    >
-                    </input>
-                    <input
-                        type='number'
-                        placeholder='snack calories'
-                        name='snackCal'
-                        onChange={this.onChange}
-                        vlaue={this.state.newFood.snackCal}
-                    >
-                    </input>
+                {this.state.addFoodInvisable === false
+                    ? allFoods : null}
+                <button onClick={this.toggleAddFoodForm}>Add Food Journal Entry</button>
+                {this.state.addFoodInvisable === true ? (
+                    <div>
+                        <form onSubmit={this.onSubmit}>
+                            <input
+                                type='date'
+                                placeholder='date'
+                                name='date'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.date}
+                            >
+                            </input>
+                            <input
+                                type='text'
+                                placeholder='breakfast'
+                                name='breakfast'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.breakfast}
+                            >
+                            </input>
+                            <input
+                                type='number'
+                                placeholder='breakfast calories'
+                                name='breakfastCal'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.breakfastCal}
+                            >
+                            </input>
+                            <input
+                                type='text'
+                                placeholder='lunch'
+                                name='lunch'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.lunch}
+                            >
+                            </input>
+                            <input
+                                type='number'
+                                placeholder='lunch calories'
+                                name='lunchCal'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.lunchCal}
+                            >
+                            </input>
+                            <input
+                                type='text'
+                                placeholder='dinner'
+                                name='dinner'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.dinner}
+                            >
+                            </input>
+                            <input
+                                type='number'
+                                placeholder='dinner calories'
+                                name='dinnerCal'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.dinnerCal}
+                            >
+                            </input>
+                            <input
+                                type='text'
+                                placeholder='snacks'
+                                name='snacks'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.snacks}
+                            >
+                            </input>
+                            <input
+                                type='number'
+                                placeholder='snack calories'
+                                name='snackCal'
+                                onChange={this.onChange}
+                                vlaue={this.state.newFood.snackCal}
+                            >
+                            </input>
 
-                    <input type="submit" vlaue="Create a Food"></input>
-                </form>
-                {this.state.foods.map((food) => {
-                    return (<Link to={`/food/${food._id}`}>
-                        <div>{food.date} - Total Calories: {food.breakfastCal + food.lunchCal + food.dinnerCal + food.snackCal}</div>
-                    </Link>)
-                })}
+                            <input type="submit" vlaue="Create a Food"></input>
+                        </form>
+                    </div>) : null}
             </div>
         )
     }
