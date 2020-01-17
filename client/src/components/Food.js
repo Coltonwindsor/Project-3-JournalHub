@@ -70,6 +70,7 @@ export default class Food extends Component {
                 <div>{food.date} - Total Calories: {food.breakfastCal + food.lunchCal + food.dinnerCal + food.snackCal}</div>
             </Link>)
         })
+
         return (
             <div>
                 <h1>Food Journal</h1>
