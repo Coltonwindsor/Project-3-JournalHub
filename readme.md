@@ -16,7 +16,9 @@ https://github.com/Coltonwindsor/Project-3
 LINK TO TRELLO BOARD GOES HERE:
 https://trello.com/b/e7EoRDeI/project-3
 
-LINK TO APP GOES HERE
+LINK TO APP GOES HERE:
+https://whispering-castle-36518.herokuapp.com/
 
 WIRE FRAME IMAGES GO HERE
+
 ERD IMAGES GO HERE
