@@ -6,7 +6,8 @@ export default class Dream extends Component {
     state = {
         dreams: [],
         newDream: {
-            name: '',
+            date: '',
+            category: '',
             description: ''
         }
     }
@@ -36,7 +37,8 @@ export default class Dream extends Component {
                 this.reloadDreamList()
                 const copyOfState = { ...this.state }
                 copyOfState.newDream = {
-                    name: '',
+                    date: '',
+                    category: '',
                     description: ''
                 }
                 this.setState(copyOfState)
@@ -49,11 +51,19 @@ export default class Dream extends Component {
                 <h1>Dream Journal</h1>
                 <form onSubmit={this.onSubmit}>
                     <input
-                        type='text'
-                        placeholder='name'
-                        name='name'
+                        type='date'
+                        placeholder='date'
+                        name='date'
                         onChange={this.onChange}
-                        vlaue={this.state.newDream.name}
+                        vlaue={this.state.newDream.date}
+                    >
+                    </input>
+                    <input
+                        type='category'
+                        placeholder='category'
+                        name='category'
+                        onChange={this.onChange}
+                        vlaue={this.state.newDream.category}
                     >
                     </input>
                     <input
@@ -64,11 +74,11 @@ export default class Dream extends Component {
                         vlaue={this.state.newDream.description}
                     >
                     </input>
-                    <input type="submit" vlaue="Create a Dream"></input>
+                    <input type="submit" vlaue="Create"></input>
                 </form>
                 {this.state.dreams.map((dream) => {
                     return (<Link to={`/dream/${dream._id}`}>
-                        <div>{dream.name}</div>
+                        <div>{dream.date}, {dream.category}</div>
                     </Link>)
                 })}
             </div>

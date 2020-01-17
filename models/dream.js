@@ -1,7 +1,8 @@
 const mongoose = require('./connection.js')
 
 const DreamSchema = new mongoose.Schema({
-  name: String,
+  date: String,
+  category: String,
   description: String,
 })
 

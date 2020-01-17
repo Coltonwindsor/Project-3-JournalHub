@@ -6,7 +6,8 @@ import { Redirect } from 'react-router-dom'
 export default class SingleDream extends Component {
     state = {
         dream: {
-            name: '',
+            date: '',
+            category: '',
             description: ''
         },
         redirect: false
@@ -43,16 +44,22 @@ export default class SingleDream extends Component {
     render() {
         return (
             <div>
-                {this.state.redirect === true ? <Redirect to='/' /> : null}
+                {this.state.redirect === true ? <Redirect to='/dream' /> : null}
                 <h1>Single Dream Page </h1>
-                <div>{this.state.dream.name}</div>
+                <div>{this.state.dream.date}</div>
+                <div>{this.state.dream.category}</div>
                 <div>{this.state.dream.description}</div>
                 <form onSubmit={this.onSubmit}>
                     <input onChange={this.onChange}
+                        type="date"
+                        name="date"
+                        placeholder='date'
+                        value={this.state.dream.date} />
+                    <input onChange={this.onChange}
                         type="text"
-                        name="name"
-                        placeholder='name'
-                        value={this.state.dream.name} />
+                        name="category"
+                        placeholder='category'
+                        value={this.state.dream.category} />
                     <input onChange={this.onChange}
                         type="text"
                         name="description"
