@@ -10,7 +10,8 @@ export default class SingleDream extends Component {
             category: '',
             description: ''
         },
-        redirect: false
+        redirect: false,
+        updateFormInvisable: false
     }
     componentDidMount() {
         axios.get(`/api/dream/${this.props.match.params.dreamId}`)
@@ -34,6 +35,12 @@ export default class SingleDream extends Component {
                 this.setState({ redirect: true })
             })
     }
+
+    toggleUpdateForm = () => {
+        const toggle = !this.state.updateFormInvisable
+        this.setState({ updateFormInvisable: toggle })
+    }
+
     deleteDream = () => {
         axios.delete(`/api/dream/${this.props.match.params.dreamId}`)
             .then(() => {
@@ -46,29 +53,36 @@ export default class SingleDream extends Component {
             <div>
                 {this.state.redirect === true ? <Redirect to='/dream' /> : null}
                 <h1>Single Dream Page </h1>
-                <div>{this.state.dream.date}</div>
-                <div>{this.state.dream.category}</div>
-                <div>{this.state.dream.description}</div>
-                <form onSubmit={this.onSubmit}>
-                    <input onChange={this.onChange}
-                        type="date"
-                        name="date"
-                        placeholder='date'
-                        value={this.state.dream.date} />
-                    <input onChange={this.onChange}
-                        type="text"
-                        name="category"
-                        placeholder='category'
-                        value={this.state.dream.category} />
-                    <input onChange={this.onChange}
-                        type="text"
-                        name="description"
-                        placeholder='description'
-                        value={this.state.dream.description} />
+                {this.state.updateFormInvisable === false ?
+                    (<div>
+                        <div>{this.state.dream.date}</div>
+                        <div>{this.state.dream.category}</div>
+                        <div>{this.state.dream.description}</div>
+                        <button onClick={this.toggleUpdateForm}>Edit Entry</button>
+                    </div>) : null}
+                {this.state.updateFormInvisable === true ?
+                    <div>
+                        <form onSubmit={this.onSubmit}>
+                            <input onChange={this.onChange}
+                                type="date"
+                                name="date"
+                                placeholder='date'
+                                value={this.state.dream.date} />
+                            <input onChange={this.onChange}
+                                type="text"
+                                name="category"
+                                placeholder='category'
+                                value={this.state.dream.category} />
+                            <input onChange={this.onChange}
+                                type="text"
+                                name="description"
+                                placeholder='description'
+                                value={this.state.dream.description} />
 
-                    <input type="submit"
-                        value="Update Dream" />
-                </form>
+                            <input type="submit"
+                                value="Update Dream" />
+                        </form>
+                    </div> : null}
                 <button onClick={this.deleteDream}>Delete Dream</button>
             </div>
         )
