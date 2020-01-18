@@ -2,11 +2,13 @@
 
 # [JournalHub](https://whispering-castle-36518.herokuapp.com/)
 
+^ click to launch app ^
+
 A place to create and store your thoughts and habbits!
 
 ### Problem:
 
-Some people love to eat. Some people love to sleep. Some people love to exercise, and some people love to daydream. Some people love to do all of those things and then write about them. Those that habitually journal about many different things have a problem - they lack an easy way to store and sort all of their material.
+Some people love to eat. Some people love to sleep. Some people love to exercise, and some people love to daydream. Some people love to do all of those things... and then write about them. Those that habitually journal about many different things have a problem - they lack an easy way to store and sort all of their material.
 
 ### Target Users and Purpose:
 
