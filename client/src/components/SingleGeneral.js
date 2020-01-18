@@ -10,7 +10,8 @@ export default class SingleGeneral extends Component {
             title: '',
             entry: ''
         },
-        redirect: false
+        redirect: false,
+        updateFormInvisable: false
     }
     componentDidMount() {
         axios.get(`/api/general/${this.props.match.params.generalId}`)
@@ -34,6 +35,12 @@ export default class SingleGeneral extends Component {
                 this.setState({ redirect: true })
             })
     }
+
+    toggleUpdateForm = () => {
+        const toggle = !this.state.updateFormInvisable
+        this.setState({ updateFormInvisable: toggle })
+    }
+
     deleteGeneral = () => {
         axios.delete(`/api/general/${this.props.match.params.generalId}`)
             .then(() => {
@@ -46,29 +53,36 @@ export default class SingleGeneral extends Component {
             <div>
                 {this.state.redirect === true ? <Redirect to='/general' /> : null}
                 <h1>Single General Thought Page </h1>
-                <div>{this.state.general.date}</div>
-                <div>{this.state.general.title}</div>
-                <div>{this.state.general.entry}</div>
-                <form onSubmit={this.onSubmit}>
-                    <input onChange={this.onChange}
-                        type="date"
-                        name="date"
-                        placeholder='date'
-                        value={this.state.general.date} />
-                    <input onChange={this.onChange}
-                        type="text"
-                        name="title"
-                        placeholder='title'
-                        value={this.state.general.title} />
-                    <input onChange={this.onChange}
-                        type="text"
-                        name="entry"
-                        placeholder='entry'
-                        value={this.state.general.entry} />
+                {this.state.updateFormInvisable === false ?
+                    (<div>
+                        <div>{this.state.general.date}</div>
+                        <div>{this.state.general.title}</div>
+                        <div>{this.state.general.entry}</div>
+                        <button onClick={this.toggleUpdateForm}>Edit Entry</button>
+                    </div>) : null}
+                {this.state.updateFormInvisable === true ?
+                    <div>
+                        <form onSubmit={this.onSubmit}>
+                            <input onChange={this.onChange}
+                                type="date"
+                                name="date"
+                                placeholder='date'
+                                value={this.state.general.date} />
+                            <input onChange={this.onChange}
+                                type="text"
+                                name="title"
+                                placeholder='title'
+                                value={this.state.general.title} />
+                            <input onChange={this.onChange}
+                                type="text"
+                                name="entry"
+                                placeholder='entry'
+                                value={this.state.general.entry} />
 
-                    <input type="submit"
-                        value="Update Entry" />
-                </form>
+                            <input type="submit"
+                                value="Update Entry" />
+                        </form>
+                    </div> : null}
                 <button onClick={this.deleteGeneral}>Delete Entry</button>
             </div>
         )
