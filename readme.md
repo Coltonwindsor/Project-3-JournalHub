@@ -4,7 +4,7 @@
 
 ^ click to launch app ^
 
-A place to create and store your thoughts and habbits!
+## JournalHub is a place to create and store your thoughts and habbits!
 
 ### Problem:
 
