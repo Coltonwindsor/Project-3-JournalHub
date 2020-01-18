@@ -61,7 +61,6 @@ export default class General extends Component {
             <div>
                 <h1>General Thoughts Journal</h1>
                 {this.state.addGeneralInvisable === false ? allGeneral : null}
-                <button onClick={this.toggleAddGeneralForm}>Add Entry</button>
                 {this.state.addGeneralInvisable === true ?
                     (<div>
                         <form onSubmit={this.onSubmit}>
@@ -92,6 +91,7 @@ export default class General extends Component {
                             <input type="submit" vlaue="Create a General"></input>
                         </form>
                     </div>) : null}
+                <button onClick={this.toggleAddGeneralForm}>Add Entry</button>
             </div>
         )
     }

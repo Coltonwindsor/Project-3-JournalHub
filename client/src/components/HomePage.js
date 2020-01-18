@@ -5,7 +5,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <div>
-                <h1>Hello from the home page</h1>
+                <h1>JournalHub</h1>
                 <div><Link to='/general'>General Thoughts</Link></div>
                 <div><Link to='/food'>Food Journal</Link></div>
                 <div><Link to='/dream'>Dream Journal</Link></div>

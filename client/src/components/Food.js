@@ -76,7 +76,6 @@ export default class Food extends Component {
                 <h1>Food Journal</h1>
                 {this.state.addFoodInvisable === false
                     ? allFoods : null}
-                <button onClick={this.toggleAddFoodForm}>Add Food Journal Entry</button>
                 {this.state.addFoodInvisable === true ? (
                     <div>
                         <form onSubmit={this.onSubmit}>
@@ -156,6 +155,7 @@ export default class Food extends Component {
                             <input type="submit" vlaue="Create a Food"></input>
                         </form>
                     </div>) : null}
+                <button onClick={this.toggleAddFoodForm}>Add Food Journal Entry</button>
             </div>
         )
     }

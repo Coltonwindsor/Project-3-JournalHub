@@ -62,7 +62,6 @@ export default class Dream extends Component {
             <div>
                 <h1>Dream Journal</h1>
                 {this.state.addDreamInvisable === false ? allDreams : null}
-                <button onClick={this.toggleAddDreamForm}>Add Entry</button>
                 {this.state.addDreamInvisable === true ? (
                     <div>
                         <form onSubmit={this.onSubmit}>
@@ -93,6 +92,7 @@ export default class Dream extends Component {
                             <input type="submit" vlaue="Create"></input>
                         </form>
                     </div>) : null}
+                <button onClick={this.toggleAddDreamForm}>Add Entry</button>
             </div>
         )
     }
