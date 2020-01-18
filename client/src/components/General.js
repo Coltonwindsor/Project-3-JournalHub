@@ -9,7 +9,8 @@ export default class General extends Component {
             date: '',
             title: '',
             entry: ''
-        }
+        },
+        addGeneralInvisable: false
     }
     componentDidMount() {
         axios.get('/api/general')
@@ -35,51 +36,62 @@ export default class General extends Component {
         axios.post('/api/general', this.state.newGeneral)
             .then(() => {
                 this.reloadGeneralList()
+                this.toggleAddGeneralForm()
                 const copyOfState = { ...this.state }
                 copyOfState.newGeneral = {
-                    name: '',
-                    description: ''
+                    date: '',
+                    title: '',
+                    entry: ''
                 }
                 this.setState(copyOfState)
             })
     }
+    toggleAddGeneralForm = () => {
+        const toggle = !this.state.addGeneralInvisable;
+        this.setState({ addGeneralInvisable: toggle })
+    }
 
     render() {
+        const allGeneral = this.state.generals.map((general) => {
+            return (<Link to={`/general/${general._id}`}>
+                <div>{general.date}, {general.title}</div>
+            </Link>)
+        })
         return (
             <div>
                 <h1>General Thoughts Journal</h1>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type='date'
-                        placeholder='date'
-                        name='date'
-                        onChange={this.onChange}
-                        vlaue={this.state.newGeneral.name}
-                    >
-                    </input>
-                    <input
-                        type='text'
-                        placeholder='title'
-                        name='title'
-                        onChange={this.onChange}
-                        vlaue={this.state.newGeneral.name}
-                    >
-                    </input>
-                    <input
-                        type='text'
-                        placeholder='entry'
-                        name='entry'
-                        onChange={this.onChange}
-                        vlaue={this.state.newGeneral.description}
-                    >
-                    </input>
-                    <input type="submit" vlaue="Create a General"></input>
-                </form>
-                {this.state.generals.map((general) => {
-                    return (<Link to={`/general/${general._id}`}>
-                        <div>{general.date}, {general.title}</div>
-                    </Link>)
-                })}
+                {this.state.addGeneralInvisable === false ? allGeneral : null}
+                <button onClick={this.toggleAddGeneralForm}>Add Entry</button>
+                {this.state.addGeneralInvisable === true ?
+                    (<div>
+                        <form onSubmit={this.onSubmit}>
+                            <input
+                                type='date'
+                                placeholder='date'
+                                name='date'
+                                onChange={this.onChange}
+                                vlaue={this.state.newGeneral.name}
+                            >
+                            </input>
+                            <input
+                                type='text'
+                                placeholder='title'
+                                name='title'
+                                onChange={this.onChange}
+                                vlaue={this.state.newGeneral.name}
+                            >
+                            </input>
+                            <input
+                                type='text'
+                                placeholder='entry'
+                                name='entry'
+                                onChange={this.onChange}
+                                vlaue={this.state.newGeneral.description}
+                            >
+                            </input>
+                            <input type="submit" vlaue="Create a General"></input>
+                        </form>
+                    </div>) : null}
             </div>
         )
     }
