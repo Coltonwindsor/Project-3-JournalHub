@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 export default class SingleFood extends Component {
     state = {
         food: {
+            date: '',
             breakfast: '',
             breakfastCal: 0,
             lunch: '',
@@ -34,10 +35,6 @@ export default class SingleFood extends Component {
         this.setState(copyOfState)
     }
 
-    toggleUpdateForm = () => {
-        const toggle = !this.state.updateFormInvisable
-        this.setState({ updateFormInvisable: toggle })
-    }
 
     onSubmit = (evt) => {
         evt.preventDefault()
@@ -45,6 +42,11 @@ export default class SingleFood extends Component {
             .then(() => {
                 this.setState({ redirect: true })
             })
+    }
+
+    toggleUpdateForm = () => {
+        const toggle = !this.state.updateFormInvisable
+        this.setState({ updateFormInvisable: toggle })
     }
     deleteFood = () => {
         axios.delete(`/api/food/${this.props.match.params.foodId}`)
@@ -79,77 +81,67 @@ export default class SingleFood extends Component {
                         <form onSubmit={this.onSubmit}>
                             <input
                                 type='date'
-                                placeholder={this.state.food.date}
+                                placeholder='date'
                                 name='date'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.date}
-                            >
-                            </input>
+                                value={this.state.food.date}
+                            />
                             <input
                                 type='text'
-                                placeholder={this.state.food.breakfast}
+                                placeholder='breakfast'
                                 name='breakfast'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.breakfast}
-                            >
-                            </input>
+                                value={this.state.food.breakfast}
+                            />
                             <input
                                 type='number'
-                                placeholder={this.state.food.breakfastCal}
+                                placeholder="breakfast calories"
                                 name='breakfastCal'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.breakfastCal}
-                            >
-                            </input>
+                                value={this.state.food.breakfastCal}
+                            />
                             <input
                                 type='text'
-                                placeholder={this.state.food.lunch}
+                                placeholder='lunch'
                                 name='lunch'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.lunch}
-                            >
-                            </input>
+                                value={this.state.food.lunch}
+                            />
                             <input
                                 type='number'
-                                placeholder={this.state.food.lunchCal}
+                                placeholder='lunch calories'
                                 name='lunchCal'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.lunchCal}
-                            >
-                            </input>
+                                value={this.state.food.lunchCal}
+                            />
                             <input
                                 type='text'
-                                placeholder={this.state.food.dinner}
+                                placeholder='dinner'
                                 name='dinner'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.dinner}
-                            >
-                            </input>
+                                value={this.state.food.dinner}
+                            />
                             <input
                                 type='number'
-                                placeholder={this.state.food.dinnerCal}
+                                placeholder='dinner calories'
                                 name='dinnerCal'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.dinnerCal}
-                            >
-                            </input>
+                                value={this.state.food.dinnerCal}
+                            />
                             <input
                                 type='text'
-                                placeholder={this.state.food.snacks}
+                                placeholder='snacks'
                                 name='snacks'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.snacks}
-                            >
-                            </input>
+                                value={this.state.food.snacks}
+                            />
                             <input
                                 type='number'
-                                placeholder={this.state.food.snackCal}
+                                placeholde='snack calories'
                                 name='snackCal'
                                 onChange={this.onChange}
-                                vlaue={this.state.food.snackCal}
-                            >
-                            </input>
-
+                                value={this.state.food.snackCal}
+                            />
                             <input type="submit"
                                 value="Update Food" />
                         </form>
