@@ -1,33 +1,53 @@
-.App {
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.journalLink {
+  width: 25%;
+  height: 50%;
+  border: solid black 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.generalLink {
+  background-color: yellow;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dreamLink {
+  background-color: green;
+}
+.foodLink {
+  background-color: aqua;
+}
+.generalLink:hover {
+  background-color: green;
+  /* needs person writing in journal image, animation, opacity */
+}
+.dreamLink:hover {
+  background-color: yellow;
+  /* needs person sleeping image, animation, opacity*/
+}
+.foodLink:hover {
+  background-color: pink;
+  /* needs person writing in journal image, animation, opacity */
+}
+.journalLinksContainer {
+  border: solid black 1px;
+  height: 75%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.homePageContainer {
+  height: 100vh;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
+  border: solid black 1px;
 }
