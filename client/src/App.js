@@ -9,7 +9,7 @@ import Dream from './components/Dream'
 import SingleDream from './components/SingleDream'
 import Food from './components/Food'
 import SingleFood from './components/SingleFood'
-// import Exercise from './components/Exercise'
+import Goal from './components/Goal'
 // import SingleExercise from './components/SingleExercise'
 
 class App extends Component {
@@ -25,8 +25,8 @@ class App extends Component {
             <Route exact path="/food/:foodId" component={SingleFood} />
             <Route exact path="/dream" component={Dream} />
             <Route exact path="/dream/:dreamId" component={SingleDream} />
-            {/* <Route exact path="/exercise" component={Exercise} />
-            <Route exact path="/exercise/:exerciseId" component={SingleExercise} /> */}
+            <Route exact path="/exercise" component={Goal} />
+            {/* <Route exact path="/exercise/:exerciseId" component={SingleExercise} /> */}
             <Route path="/" component={HomePage} />
           </Switch>
         </div>

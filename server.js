@@ -19,7 +19,7 @@ const app = express()
 const { generalRouter } = require('./controllers/general.js')
 const { foodRouter } = require('./controllers/food.js')
 const { dreamRouter } = require('./controllers/dream.js')
-const { exerciseRouter } = require('./controllers/exercise.js')
+const { goalRouter } = require('./controllers/goal.js')
 
 
 /* Step 3
@@ -55,7 +55,7 @@ app.use(express.static(`${__dirname}/client/build`))
 app.use('/api/general', generalRouter)
 app.use('/api/food', foodRouter)
 app.use('/api/dream', dreamRouter)
-app.use('/api/exercise', exerciseRouter)
+app.use('/api/exercise', goalRouter)
 
 
 /* Step 5
