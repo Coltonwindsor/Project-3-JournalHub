@@ -59,40 +59,50 @@ export default class Dream extends Component {
         })
 
         return (
-            <div>
+            <div className="dreamContainer">
                 <h1>Dream Journal</h1>
                 {this.state.addDreamInvisable === false ? allDreams : null}
                 {this.state.addDreamInvisable === true ? (
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <input
-                                type='date'
-                                placeholder='date'
-                                name='date'
-                                onChange={this.onChange}
-                                vlaue={this.state.newDream.date}
-                            >
-                            </input>
-                            <input
-                                type='category'
-                                placeholder='category'
-                                name='category'
-                                onChange={this.onChange}
-                                vlaue={this.state.newDream.category}
-                            >
-                            </input>
-                            <input
-                                type='text'
-                                placeholder='description'
-                                name='description'
-                                onChange={this.onChange}
-                                vlaue={this.state.newDream.description}
-                            >
-                            </input>
-                            <input type="submit" vlaue="Create"></input>
+                            <div>
+                                <input
+                                    type='date'
+                                    placeholder='date'
+                                    name='date'
+                                    onChange={this.onChange}
+                                    vlaue={this.state.newDream.date}
+                                >
+                                </input>
+                            </div>
+                            <div>
+                                <input
+                                    type='category'
+                                    placeholder='category'
+                                    name='category'
+                                    onChange={this.onChange}
+                                    vlaue={this.state.newDream.category}
+                                >
+                                </input>
+                            </div>
+                            <div>
+                                <input
+                                    type='text'
+                                    placeholder='description'
+                                    name='description'
+                                    onChange={this.onChange}
+                                    vlaue={this.state.newDream.description}
+                                >
+                                </input>
+                            </div>
+                            <div>
+                                <input type="submit" vlaue="Create"></input>
+                            </div>
                         </form>
                     </div>) : null}
-                <button onClick={this.toggleAddDreamForm}>Add Entry</button>
+                {this.state.addDreamInvisable === false ?
+                    <button onClick={this.toggleAddDreamForm}>Add Entry</button> :
+                    <button onClick={this.toggleAddDreamForm}>Back</button>}
             </div>
         )
     }

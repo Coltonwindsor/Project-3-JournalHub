@@ -3,40 +3,96 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  font-family: "Patrick Hand SC", cursive;
+  background-color: rgb(64, 108, 136);
+  color: white;
+  height: 100%;
+  border-bottom: solid black 2px;
+  padding-bottom: 3px;
 }
+.header img {
+  height: 63px;
+  padding-bottom: 10px;
+}
+.header-fix {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: auto;
+}
+.headerPadding {
+  padding-top: 94px;
+}
+.navContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: solid black 2px;
+  background-color: black;
+}
+.nav {
+  font-family: "Patrick Hand SC", cursive;
+  color: beige;
+  border: solid black 2px;
+  margin-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.nav:hover {
+  border: solid beige 2px;
+}
+/* .search {
+  align-self: flex-end;
+  margin-left: 20em;
+} */
 .journalLink {
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 40px;
   width: 25%;
   height: 50%;
-  border: solid black 1px;
+  border: solid black 3px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
   text-decoration: none;
-  color: black;
-  font-size: 20px;
+  color: beige;
   text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  box-shadow: 50px 50px 81px -19px rgba(0, 0, 0, 0.37);
+}
+.journalLink:hover {
+  border: solid rgb(64, 108, 136) 3px;
 }
 .generalLink {
-  background-color: yellow;
+  background-image: url("https://i.imgur.com/cUxLtAb.jpg");
+  background-size: cover;
 }
 .dreamLink {
-  background-color: green;
+  background-image: url("https://i.imgur.com/j6OFJta.jpg");
+  background-size: cover;
 }
 .foodLink {
-  background-color: aqua;
+  background-image: url("https://i.imgur.com/oPHaPYk.jpg");
+  background-size: cover;
 }
 .generalLink:hover {
-  background-color: green;
-  /* needs person writing in journal image, animation, opacity */
+  background-image: url("https://i.imgur.com/cUxLtAb.jpg");
+  background-size: cover;
+  opacity: 0.75;
 }
 .dreamLink:hover {
-  background-color: yellow;
-  /* needs person sleeping image, animation, opacity*/
+  background-image: url("https://i.imgur.com/j6OFJta.jpg");
+  background-size: cover;
+  opacity: 0.75;
 }
 .foodLink:hover {
-  background-color: pink;
-  /* needs person writing in journal image, animation, opacity */
+  background-image: url("https://i.imgur.com/oPHaPYk.jpg");
+  background-size: cover;
+  opacity: 0.75;
 }
 .journalLinksContainer {
   border: solid black 1px;
@@ -47,7 +103,23 @@
 }
 .homePageContainer {
   height: 100vh;
+  /* background-color: rgb(64, 108, 136); */
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
   border: solid black 1px;
+}
+.dreamContainer {
+  height: 100vh;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
+}
+.foodContainer {
+  height: 100vh;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
+}
+.generalContainer {
+  height: 100vh;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
 }

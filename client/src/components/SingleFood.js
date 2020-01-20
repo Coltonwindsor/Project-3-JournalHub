@@ -57,7 +57,7 @@ export default class SingleFood extends Component {
 
     render() {
         return (
-            <div>
+            <div className="foodContainer">
                 {this.state.redirect === true ? <Redirect to='/food' /> : null}
                 <h1>Single Food Page </h1>
                 {this.state.updateFormInvisable === false ?
@@ -79,71 +79,83 @@ export default class SingleFood extends Component {
                 {this.state.updateFormInvisable === true ?
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <input
-                                type='date'
-                                placeholder='date'
-                                name='date'
-                                onChange={this.onChange}
-                                value={this.state.food.date}
-                            />
-                            <input
-                                type='text'
-                                placeholder='breakfast'
-                                name='breakfast'
-                                onChange={this.onChange}
-                                value={this.state.food.breakfast}
-                            />
-                            <input
-                                type='number'
-                                placeholder="breakfast calories"
-                                name='breakfastCal'
-                                onChange={this.onChange}
-                                value={this.state.food.breakfastCal}
-                            />
-                            <input
-                                type='text'
-                                placeholder='lunch'
-                                name='lunch'
-                                onChange={this.onChange}
-                                value={this.state.food.lunch}
-                            />
-                            <input
-                                type='number'
-                                placeholder='lunch calories'
-                                name='lunchCal'
-                                onChange={this.onChange}
-                                value={this.state.food.lunchCal}
-                            />
-                            <input
-                                type='text'
-                                placeholder='dinner'
-                                name='dinner'
-                                onChange={this.onChange}
-                                value={this.state.food.dinner}
-                            />
-                            <input
-                                type='number'
-                                placeholder='dinner calories'
-                                name='dinnerCal'
-                                onChange={this.onChange}
-                                value={this.state.food.dinnerCal}
-                            />
-                            <input
-                                type='text'
-                                placeholder='snacks'
-                                name='snacks'
-                                onChange={this.onChange}
-                                value={this.state.food.snacks}
-                            />
-                            <input
-                                type='number'
-                                placeholde='snack calories'
-                                name='snackCal'
-                                onChange={this.onChange}
-                                value={this.state.food.snackCal}
-                            />
-                            <input type="submit"
-                                value="Update Food" />
+                            <div>
+                                <input
+                                    type='date'
+                                    placeholder='date'
+                                    name='date'
+                                    onChange={this.onChange}
+                                    value={this.state.food.date}
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type='text'
+                                    placeholder='breakfast'
+                                    name='breakfast'
+                                    onChange={this.onChange}
+                                    value={this.state.food.breakfast}
+                                />
+                                <input
+                                    type='number'
+                                    placeholder="breakfast calories"
+                                    name='breakfastCal'
+                                    onChange={this.onChange}
+                                    value={this.state.food.breakfastCal}
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type='text'
+                                    placeholder='lunch'
+                                    name='lunch'
+                                    onChange={this.onChange}
+                                    value={this.state.food.lunch}
+                                />
+                                <input
+                                    type='number'
+                                    placeholder='lunch calories'
+                                    name='lunchCal'
+                                    onChange={this.onChange}
+                                    value={this.state.food.lunchCal}
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type='text'
+                                    placeholder='dinner'
+                                    name='dinner'
+                                    onChange={this.onChange}
+                                    value={this.state.food.dinner}
+                                />
+                                <input
+                                    type='number'
+                                    placeholder='dinner calories'
+                                    name='dinnerCal'
+                                    onChange={this.onChange}
+                                    value={this.state.food.dinnerCal}
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type='text'
+                                    placeholder='snacks'
+                                    name='snacks'
+                                    onChange={this.onChange}
+                                    value={this.state.food.snacks}
+                                />
+                                <input
+                                    type='number'
+                                    placeholde='snack calories'
+                                    name='snackCal'
+                                    onChange={this.onChange}
+                                    value={this.state.food.snackCal}
+                                />
+                            </div>
+                            <div>
+                                <input type="submit"
+                                    value="Update Food" />
+                            </div>
                         </form>
                     </div> : null}
                 <button onClick={this.deleteFood}>Delete Food</button>

@@ -50,7 +50,7 @@ export default class SingleGeneral extends Component {
 
     render() {
         return (
-            <div>
+            <div className="generalContainer">
                 {this.state.redirect === true ? <Redirect to='/general' /> : null}
                 <h1>Single General Thought Page </h1>
                 {this.state.updateFormInvisable === false ?
@@ -63,24 +63,35 @@ export default class SingleGeneral extends Component {
                 {this.state.updateFormInvisable === true ?
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <input onChange={this.onChange}
-                                type="date"
-                                name="date"
-                                placeholder='date'
-                                value={this.state.general.date} />
-                            <input onChange={this.onChange}
-                                type="text"
-                                name="title"
-                                placeholder='title'
-                                value={this.state.general.title} />
-                            <input onChange={this.onChange}
-                                type="text"
-                                name="entry"
-                                placeholder='entry'
-                                value={this.state.general.entry} />
+                            <div>
+                                <input onChange={this.onChange}
+                                    type="date"
+                                    name="date"
+                                    placeholder='date'
+                                    value={this.state.general.date} />
+                            </div>
+                            <div>
+                                <input onChange={this.onChange}
+                                    type="text"
+                                    name="title"
+                                    placeholder='title'
+                                    value={this.state.general.title} />
+                            </div>
+                            <div>
+                                <textarea
+                                    columns="50"
+                                    rows="10"
+                                    onChange={this.onChange}
+                                    type="text"
+                                    name="entry"
+                                    placeholder='entry'
+                                    value={this.state.general.entry} />
+                            </div>
+                            <div>
+                                <input type="submit"
+                                    value="Update Entry" />
+                            </div>
 
-                            <input type="submit"
-                                value="Update Entry" />
                         </form>
                     </div> : null}
                 <button onClick={this.deleteGeneral}>Delete Entry</button>

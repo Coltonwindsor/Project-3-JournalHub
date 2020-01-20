@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import HomePage from './components/HomePage'
+import NavBar from './components/NavBar'
 import General from './components/General'
 import SingleGeneral from './components/SingleGeneral'
 import Dream from './components/Dream'
@@ -15,7 +16,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div><NavBar /></div>
+        <div className="headerPadding">
           <Switch>
             <Route exact path="/general" component={General} />
             <Route exact path="/general/:generalId" component={SingleGeneral} />
@@ -26,7 +28,6 @@ class App extends Component {
             {/* <Route exact path="/exercise" component={Exercise} />
             <Route exact path="/exercise/:exerciseId" component={SingleExercise} /> */}
             <Route path="/" component={HomePage} />
-
           </Switch>
         </div>
       </Router>

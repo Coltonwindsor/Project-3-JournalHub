@@ -50,7 +50,7 @@ export default class SingleDream extends Component {
 
     render() {
         return (
-            <div>
+            <div className="dreamContainer">
                 {this.state.redirect === true ? <Redirect to='/dream' /> : null}
                 <h1>Single Dream Page </h1>
                 {this.state.updateFormInvisable === false ?
@@ -63,24 +63,31 @@ export default class SingleDream extends Component {
                 {this.state.updateFormInvisable === true ?
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <input onChange={this.onChange}
-                                type="date"
-                                name="date"
-                                placeholder='date'
-                                value={this.state.dream.date} />
-                            <input onChange={this.onChange}
-                                type="text"
-                                name="category"
-                                placeholder='category'
-                                value={this.state.dream.category} />
-                            <input onChange={this.onChange}
-                                type="text"
-                                name="description"
-                                placeholder='description'
-                                value={this.state.dream.description} />
-
-                            <input type="submit"
-                                value="Update Dream" />
+                            <div>
+                                <input onChange={this.onChange}
+                                    type="date"
+                                    name="date"
+                                    placeholder='date'
+                                    value={this.state.dream.date} />
+                            </div>
+                            <div>
+                                <input onChange={this.onChange}
+                                    type="text"
+                                    name="category"
+                                    placeholder='category'
+                                    value={this.state.dream.category} />
+                            </div>
+                            <div>
+                                <input onChange={this.onChange}
+                                    type="text"
+                                    name="description"
+                                    placeholder='description'
+                                    value={this.state.dream.description} />
+                            </div>
+                            <div>
+                                <input type="submit"
+                                    value="Update Dream" />
+                            </div>
                         </form>
                     </div> : null}
                 <button onClick={this.deleteDream}>Delete Dream</button>
