@@ -113,7 +113,7 @@ export default class Food extends Component {
                             <div className="inputBoxDiv">
                                 <input
                                     type='text'
-                                    placeholder='breakfast'
+                                    placeholder='Breakfast'
                                     name='breakfast'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.breakfast}
@@ -121,7 +121,7 @@ export default class Food extends Component {
                                 </input>
                                 <input
                                     type='number'
-                                    placeholder='breakfast calories'
+                                    placeholder='Breakfast Calories'
                                     name='breakfastCal'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.breakfastCal}
@@ -131,7 +131,7 @@ export default class Food extends Component {
                             <div className="inputBoxDiv">
                                 <input
                                     type='text'
-                                    placeholder='lunch'
+                                    placeholder='Lunch'
                                     name='lunch'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.lunch}
@@ -139,7 +139,7 @@ export default class Food extends Component {
                                 </input>
                                 <input
                                     type='number'
-                                    placeholder='lunch calories'
+                                    placeholder='Lunch Calories'
                                     name='lunchCal'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.lunchCal}
@@ -149,7 +149,7 @@ export default class Food extends Component {
                             <div className="inputBoxDiv">
                                 <input
                                     type='text'
-                                    placeholder='dinner'
+                                    placeholder='Dinner'
                                     name='dinner'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.dinner}
@@ -157,7 +157,7 @@ export default class Food extends Component {
                                 </input>
                                 <input
                                     type='number'
-                                    placeholder='dinner calories'
+                                    placeholder='Dinner Calories'
                                     name='dinnerCal'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.dinnerCal}
@@ -167,7 +167,7 @@ export default class Food extends Component {
                             <div className="inputBoxDiv">
                                 <input
                                     type='text'
-                                    placeholder='snacks'
+                                    placeholder='Snacks'
                                     name='snacks'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.snacks}
@@ -175,7 +175,7 @@ export default class Food extends Component {
                                 </input>
                                 <input
                                     type='number'
-                                    placeholder='snack calories'
+                                    placeholder='Snack Calories'
                                     name='snackCal'
                                     onChange={this.onChange}
                                     vlaue={this.state.newFood.snackCal}
