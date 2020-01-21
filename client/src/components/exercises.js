@@ -3,24 +3,24 @@ export default [
         name: 'exercise1',
         description: 'exerciseDescription',
         image: 'linkToImage',
-        pointvalue: 11
+        pointValue: 11
     },
     {
         name: 'exercise2',
         description: 'exerciseDescription',
         image: 'linkToImage',
-        pointvalue: 22
+        pointValue: 22
     },
     {
         name: 'exercise3',
         description: 'exerciseDescription',
         image: 'linkToImage',
-        pointvalue: 44
+        pointValue: 33
     },
     {
         name: 'exercise4',
         description: 'exerciseDescription',
         image: 'linkToImage',
-        pointvalue: 44
+        pointValue: 44
     }
 ]

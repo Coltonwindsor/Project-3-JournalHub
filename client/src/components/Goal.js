@@ -5,7 +5,8 @@ import axios from 'axios'
 export default class Goal extends Component {
     state = {
         currentPoints: 0,
-        goals: []
+        goals: [],
+        completed: []
     }
 
     componentDidMount() {
@@ -18,7 +19,6 @@ export default class Goal extends Component {
                 this.setState({ goals: res.data })
             })
     }
-
     createGoal = (exercise) => {
         axios.post('/api/exercise', exercise)
             .then(() => {
@@ -26,6 +26,25 @@ export default class Goal extends Component {
             })
     }
 
+    //Need Work on these functions --------------------------------------------
+
+    deleteGoal = () => {
+        axios.delete(`/api/exercise/${this.props.match.params.exerciseId}`)
+    }
+
+    //update goals list and add to completed list
+    completeGoal = (evt) => {
+        axios.put(`/api/exercise/${this.props.match.params}`, this.state.goal)
+    }
+
+    createCompletedGoal = (completedGoal) => {
+        axios.post(`/api/exercise`, completedGoal)
+            .then((res) => {
+                this.setState({ completed: res.data })
+            })
+    }
+
+    // ------------------------------------------------------------------------
 
 
 
@@ -46,10 +65,39 @@ export default class Goal extends Component {
                     <h1>Goals</h1>
                     {this.state.goals.map((goal) => {
                         return (
-                            <div>{goal.name}, {goal.description}, {goal.image}, {goal.pointValue}</div>
+                            <div>
+                                <div>
+                                    {goal.name}, {goal.description}, {goal.image}, {goal.pointValue}
+                                </div>
+                                <div>
+                                    <button onClick={this.deleteGoal}>
+                                        Remove Goal
+                                    </button>
+                                    <button onClick={this.completeGoal}>
+                                        Complete Goal
+                                    </button>
+                                </div>
+                            </div>
                         )
                     })}
                 </div>
+                {/* <div>
+                    <h1>Completed Goals</h1>
+                    {this.state.completed.map((completedGoal) => {
+                        return (
+                            <div>
+                                <div>
+                                    {completedGoal.name}, {completedGoal.image}, {completedGoal.description}
+                                </div>
+                                <div>
+                                    <button>
+                                        Remove Goal
+                                </button>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div> */}
 
             </div>
         )
