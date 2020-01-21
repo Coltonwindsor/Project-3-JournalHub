@@ -54,14 +54,30 @@ export default class Dream extends Component {
     render() {
         const allDreams = this.state.dreams.map((dream) => {
             return (<Link to={`/dream/${dream._id}`}>
-                <div>{dream.date}, {dream.category}</div>
+                <div className="singleDreamContainer">{dream.date}, {dream.category}
+                </div>
             </Link>)
         })
 
         return (
             <div className="dreamContainer">
                 <h1>Dream Journal</h1>
-                {this.state.addDreamInvisable === false ? allDreams : null}
+                {this.state.addDreamInvisable === false ?
+                    <div className='addEntryButtonDiv'>
+                        <button
+                            className="addEntryButton"
+                            onClick={this.toggleAddDreamForm}>
+                            Add Entry
+                        </button>
+                    </div> :
+                    <div className='addEntryButtonDiv'>
+                        <button
+                            className="addEntryButton"
+                            onClick={this.toggleAddDreamForm}>
+                            Back
+                        </button>
+                    </div>}
+                {this.state.addDreamInvisable === false ? <div className="dreamList">{allDreams}</div> : null}
                 {this.state.addDreamInvisable === true ? (
                     <div>
                         <form onSubmit={this.onSubmit}>
@@ -100,9 +116,7 @@ export default class Dream extends Component {
                             </div>
                         </form>
                     </div>) : null}
-                {this.state.addDreamInvisable === false ?
-                    <button onClick={this.toggleAddDreamForm}>Add Entry</button> :
-                    <button onClick={this.toggleAddDreamForm}>Back</button>}
+
             </div>
         )
     }

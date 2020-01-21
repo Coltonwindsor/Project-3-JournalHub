@@ -54,13 +54,13 @@ export default class General extends Component {
     render() {
         const allGeneral = this.state.generals.map((general) => {
             return (
-                <div className="textDecoration">
-                    <Link to={`/general/${general._id}`}>
-                        <div className="singleGeneralThougtContainer">
-                            {general.date}, {general.title}
-                        </div>
-                    </Link>
-                </div>
+
+                <Link to={`/general/${general._id}`}>
+                    <div className="singleGeneralThoughtContainer">
+                        {general.date}, {general.title}
+                    </div>
+                </Link>
+
             )
         })
         return (

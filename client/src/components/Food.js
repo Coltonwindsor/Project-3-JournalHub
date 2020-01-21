@@ -66,16 +66,36 @@ export default class Food extends Component {
     render() {
 
         const allFoods = this.state.foods.map((food) => {
-            return (<Link to={`/food/${food._id}`}>
-                <div>{food.date} - Total Calories: {food.breakfastCal + food.lunchCal + food.dinnerCal + food.snackCal}</div>
-            </Link>)
+            return (
+                <Link to={`/food/${food._id}`}>
+                    <div className="singleFoodContainer">
+                        {food.date} - Total Calories: {food.breakfastCal + food.lunchCal + food.dinnerCal + food.snackCal}
+                    </div>
+                </Link>)
         })
 
         return (
             <div className="foodContainer">
                 <h1>Food Journal</h1>
+                {this.state.addFoodInvisable === false ?
+                    <div className='addEntryButtonDiv'>
+                        <button className="addEntryButton"
+                            onClick={this.toggleAddFoodForm}>
+                            Add Food Journal Entry
+                       </button>
+                    </div> :
+                    <div className="addEntryButtonDiv">
+                        <button
+                            className="addEntryButton"
+                            onClick={this.toggleAddFoodForm}>
+                            Back
+                            </button>
+                    </div>}
                 {this.state.addFoodInvisable === false
-                    ? allFoods : null}
+                    ?
+                    <div className="foodList">
+                        {allFoods}
+                    </div> : null}
                 {this.state.addFoodInvisable === true ? (
                     <div>
 
@@ -167,9 +187,7 @@ export default class Food extends Component {
                             </div>
                         </form>
                     </div>) : null}
-                {this.state.addFoodInvisable === false ?
-                    <button onClick={this.toggleAddFoodForm}>Add Food Journal Entry</button> :
-                    <button onClick={this.toggleAddFoodForm}>Back</button>}
+
             </div>
         )
     }
