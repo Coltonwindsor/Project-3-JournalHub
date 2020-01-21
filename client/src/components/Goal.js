@@ -6,7 +6,8 @@ export default class Goal extends Component {
     state = {
         currentPoints: 0,
         goals: [],
-        completed: []
+        completed: [],
+        incomplete: []
     }
 
     componentDidMount() {
@@ -19,6 +20,7 @@ export default class Goal extends Component {
                 this.setState({ goals: res.data })
             })
     }
+
     createGoal = (exercise) => {
         axios.post('/api/exercise', exercise)
             .then(() => {
@@ -26,21 +28,21 @@ export default class Goal extends Component {
             })
     }
 
-    //Need Work on these functions --------------------------------------------
-
     deleteGoal = (goalId) => {
-        console.log('goalId', goalId)
         axios.delete(`/api/exercise/${goalId}`)
             .then(this.getAllGoals)
     }
+    //Need Work on these functions --------------------------------------------
 
-    //update goals list and add to completed list
-    // completeGoal = (evt) => {
-    //     axios.put(`/api/exercise/${}`, this.state.goal)
-    // }
+    // given an array write a function that returns an array of all false completed
+    // given an array write a function that returns an array of all true completed
+    // map through arrays to render
+    // update function will flip boolean
 
+
+    //this function will update the boolean to true for completed and then get all goals again
     createCompletedGoal = (completedGoal) => {
-        axios.post(`/api/exercise`, completedGoal)
+        axios.put(`/api/exercise`, completedGoal)
             .then((res) => {
                 this.setState({ completed: res.data })
             })

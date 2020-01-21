@@ -71,12 +71,12 @@ html {
   border: 1px solid #1f2f47;
   display: inline-block;
   cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
+  color: beige;
+  font-family: "Patrick Hand SC", cursive;
   font-size: 15px;
   padding: 6px 13px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #263666;
+  text-shadow: 2px 2px 2px black;
 }
 .addEntryButton:hover {
   background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
@@ -92,6 +92,7 @@ html {
 a {
   text-decoration: none;
 }
+
 /* Global CSS end */
 
 /* HomePage CSS */
@@ -197,7 +198,8 @@ a {
   align-items: flex-start;
   font-family: "Patrick Hand SC", cursive;
   font-size: 15px;
-  text-decoration: none;
+  text-shadow: 2px 2px 2px black;
+  box-shadow: 10px 9px 15px 0px rgba(0, 0, 0, 0.41);
   padding: 5px;
 }
 /* Dream Journal CSS end */
@@ -233,7 +235,8 @@ a {
   align-items: flex-start;
   font-family: "Patrick Hand SC", cursive;
   font-size: 15px;
-  text-decoration: none;
+  text-shadow: 2px 2px 2px black;
+  box-shadow: 10px 9px 15px 0px rgba(0, 0, 0, 0.41);
   padding: 5px;
 }
 /* Food Journal CSS End */
@@ -269,7 +272,8 @@ a {
   align-items: flex-start;
   font-family: "Patrick Hand SC", cursive;
   font-size: 15px;
-  text-decoration: none;
+  text-shadow: 2px 2px 2px black;
+  box-shadow: 10px 9px 15px 0px rgba(0, 0, 0, 0.41);
   padding: 5px;
 }
 
