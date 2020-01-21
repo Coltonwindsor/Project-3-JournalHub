@@ -86,14 +86,14 @@ export default class Dream extends Component {
                                 </input>
                             </div>
                             <div>
-                                <input
+                                <textarea rows="10" columns="50"
                                     type='text'
                                     placeholder='description'
                                     name='description'
                                     onChange={this.onChange}
                                     vlaue={this.state.newDream.description}
                                 >
-                                </input>
+                                </textarea>
                             </div>
                             <div>
                                 <input type="submit" vlaue="Create"></input>

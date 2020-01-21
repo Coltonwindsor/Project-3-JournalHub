@@ -4,7 +4,8 @@ const GoalSchema = new mongoose.Schema({
   name: String,
   description: String,
   image: String,
-  pointValue: Number
+  pointValue: Number,
+  isCompleted: Boolean
 })
 
 const GoalCollection = mongoose.model('goal', GoalSchema)

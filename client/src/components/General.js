@@ -53,55 +53,62 @@ export default class General extends Component {
 
     render() {
         const allGeneral = this.state.generals.map((general) => {
-            return (<Link to={`/general/${general._id}`}>
-                <div>{general.date}, {general.title}</div>
-            </Link>)
+            return (
+                <Link to={`/general/${general._id}`}>
+                    <div className="singleGeneralThougtContainer">
+                        {general.date}, {general.title}
+                    </div>
+                </Link>
+            )
         })
         return (
             <div className="generalContainer">
                 <h1>General Thoughts Journal</h1>
-                {this.state.addGeneralInvisable === false ? allGeneral : null}
-                {this.state.addGeneralInvisable === true ?
-                    (<div>
-                        <form onSubmit={this.onSubmit}>
-                            <div>
-                                <input
-                                    type='date'
-                                    placeholder='date'
-                                    name='date'
-                                    onChange={this.onChange}
-                                    vlaue={this.state.newGeneral.name}
-                                >
-                                </input>
-                            </div>
-                            <div>
-                                <input
-                                    type='text'
-                                    placeholder='title'
-                                    name='title'
-                                    onChange={this.onChange}
-                                    vlaue={this.state.newGeneral.name}
-                                >
-                                </input>
-                            </div>
-                            <div>
-                                <textarea rows="10" columns="50"
-                                    type='text'
-                                    placeholder='entry'
-                                    name='entry'
-                                    onChange={this.onChange}
-                                    vlaue={this.state.newGeneral.description}
-                                >
-                                </textarea>
-                            </div>
-                            <div>
-                                <input type="submit" vlaue="Create a General"></input>
-                            </div>
-                        </form>
-                    </div>) : null}
                 {this.state.addGeneralInvisable === false ?
                     <button onClick={this.toggleAddGeneralForm}>Add Entry</button> :
                     <button onClick={this.toggleAddGeneralForm}>Back</button>}
+                <div className="generalThoughtsList">
+                    {this.state.addGeneralInvisable === false ? allGeneral : null}
+
+                    {this.state.addGeneralInvisable === true ?
+                        (<div>
+                            <form onSubmit={this.onSubmit}>
+                                <div>
+                                    <input
+                                        type='date'
+                                        placeholder='date'
+                                        name='date'
+                                        onChange={this.onChange}
+                                        vlaue={this.state.newGeneral.name}
+                                    >
+                                    </input>
+                                </div>
+                                <div>
+                                    <input
+                                        type='text'
+                                        placeholder='title'
+                                        name='title'
+                                        onChange={this.onChange}
+                                        vlaue={this.state.newGeneral.name}
+                                    >
+                                    </input>
+                                </div>
+                                <div>
+                                    <textarea rows="10" columns="50"
+                                        type='text'
+                                        placeholder='entry'
+                                        name='entry'
+                                        onChange={this.onChange}
+                                        vlaue={this.state.newGeneral.description}
+                                    >
+                                    </textarea>
+                                </div>
+                                <div>
+                                    <input type="submit" vlaue="Create a General"></input>
+                                </div>
+                            </form>
+                        </div>) : null}
+                </div>
             </div>
         )
     }

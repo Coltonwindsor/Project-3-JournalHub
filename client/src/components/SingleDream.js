@@ -78,7 +78,8 @@ export default class SingleDream extends Component {
                                     value={this.state.dream.category} />
                             </div>
                             <div>
-                                <input onChange={this.onChange}
+                                <textarea rows="10" columns="50"
+                                    onChange={this.onChange}
                                     type="text"
                                     name="description"
                                     placeholder='description'

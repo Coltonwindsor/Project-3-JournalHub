@@ -15,7 +15,7 @@ export default class NavBar extends Component {
                     <Link to='/food' className="nav"><div>Food Journal</div></Link>
                     <Link to='/dream' className="nav"><div>Dream Journal</div></Link>
                     <Link to='/exercise' className="nav"><div>Exercise Journal</div></Link>
-                    {/* <div className='search'>Search</div> */}
+
                 </div>
             </div>
         )

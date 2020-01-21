@@ -28,14 +28,16 @@ export default class Goal extends Component {
 
     //Need Work on these functions --------------------------------------------
 
-    deleteGoal = () => {
-        axios.delete(`/api/exercise/${this.props.match.params.exerciseId}`)
+    deleteGoal = (goalId) => {
+        console.log('goalId', goalId)
+        axios.delete(`/api/exercise/${goalId}`)
+            .then(this.getAllGoals)
     }
 
     //update goals list and add to completed list
-    completeGoal = (evt) => {
-        axios.put(`/api/exercise/${this.props.match.params}`, this.state.goal)
-    }
+    // completeGoal = (evt) => {
+    //     axios.put(`/api/exercise/${}`, this.state.goal)
+    // }
 
     createCompletedGoal = (completedGoal) => {
         axios.post(`/api/exercise`, completedGoal)
@@ -58,10 +60,11 @@ export default class Goal extends Component {
         })
         return (
             <div className="goalContainer">
-                <div className="allExercisesList">
-                    {allExercises}
-                </div>
                 <div>
+                    <h1>Exercises</h1>
+                    <div className="allExercisesList">
+                        {allExercises}
+                    </div>
                     <h1>Goals</h1>
                     {this.state.goals.map((goal) => {
                         return (
@@ -70,7 +73,7 @@ export default class Goal extends Component {
                                     {goal.name}, {goal.description}, {goal.image}, {goal.pointValue}
                                 </div>
                                 <div>
-                                    <button onClick={this.deleteGoal}>
+                                    <button onClick={() => this.deleteGoal(goal._id)}>
                                         Remove Goal
                                     </button>
                                     <button onClick={this.completeGoal}>
@@ -81,7 +84,7 @@ export default class Goal extends Component {
                         )
                     })}
                 </div>
-                {/* <div>
+                <div>
                     <h1>Completed Goals</h1>
                     {this.state.completed.map((completedGoal) => {
                         return (
@@ -97,7 +100,7 @@ export default class Goal extends Component {
                             </div>
                         )
                     })}
-                </div> */}
+                </div>
 
             </div>
         )
