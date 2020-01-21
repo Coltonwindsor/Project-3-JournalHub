@@ -92,7 +92,23 @@ html {
 a {
   text-decoration: none;
 }
-
+input {
+  border: solid black 2px;
+  border-radius: 10px;
+  box-shadow: 10px 9px 15px 0px rgba(0, 0, 0, 0.41);
+  text-align: center;
+}
+textarea {
+  border: solid black 2px;
+  border-radius: 10px;
+  box-shadow: 10px 9px 15px 0px rgba(0, 0, 0, 0.41);
+  text-align: center;
+}
+.inputBoxDiv {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
 /* Global CSS end */
 
 /* HomePage CSS */
@@ -286,7 +302,5 @@ a {
   background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
   background-repeat: repeat;
 }
-.allExercisesList {
-  margin-top: 15px;
-}
+
 /* Exercise Journal CSS end */

@@ -81,7 +81,7 @@ export default class Dream extends Component {
                 {this.state.addDreamInvisable === true ? (
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='date'
                                     placeholder='date'
@@ -91,27 +91,27 @@ export default class Dream extends Component {
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='category'
-                                    placeholder='category'
+                                    placeholder='Category'
                                     name='category'
                                     onChange={this.onChange}
                                     vlaue={this.state.newDream.category}
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <textarea rows="10" columns="50"
                                     type='text'
-                                    placeholder='description'
+                                    placeholder='Description'
                                     name='description'
                                     onChange={this.onChange}
                                     vlaue={this.state.newDream.description}
                                 >
                                 </textarea>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input type="submit" vlaue="Create"></input>
                             </div>
                         </form>

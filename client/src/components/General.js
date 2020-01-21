@@ -90,7 +90,7 @@ export default class General extends Component {
                 {this.state.addGeneralInvisable === true ?
                     (<div>
                         <form onSubmit={this.onSubmit}>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='date'
                                     placeholder='date'
@@ -100,27 +100,27 @@ export default class General extends Component {
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='text'
-                                    placeholder='title'
+                                    placeholder='Title'
                                     name='title'
                                     onChange={this.onChange}
                                     vlaue={this.state.newGeneral.name}
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <textarea rows="10" columns="50"
                                     type='text'
-                                    placeholder='entry'
+                                    placeholder='Entry'
                                     name='entry'
                                     onChange={this.onChange}
                                     vlaue={this.state.newGeneral.description}
                                 >
                                 </textarea>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input type="submit" vlaue="Create a General"></input>
                             </div>
                         </form>

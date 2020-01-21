@@ -100,7 +100,7 @@ export default class Food extends Component {
                     <div>
 
                         <form onSubmit={this.onSubmit}>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='date'
                                     placeholder='date'
@@ -110,7 +110,7 @@ export default class Food extends Component {
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='text'
                                     placeholder='breakfast'
@@ -128,7 +128,7 @@ export default class Food extends Component {
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='text'
                                     placeholder='lunch'
@@ -146,7 +146,7 @@ export default class Food extends Component {
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='text'
                                     placeholder='dinner'
@@ -164,7 +164,7 @@ export default class Food extends Component {
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input
                                     type='text'
                                     placeholder='snacks'
@@ -182,7 +182,7 @@ export default class Food extends Component {
                                 >
                                 </input>
                             </div>
-                            <div>
+                            <div className="inputBoxDiv">
                                 <input type="submit" vlaue="Create a Food"></input>
                             </div>
                         </form>
