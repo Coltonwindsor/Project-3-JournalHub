@@ -59,27 +59,32 @@ export default class SingleFood extends Component {
         return (
             <div className="foodContainer">
                 {this.state.redirect === true ? <Redirect to='/food' /> : null}
-                <h1>Single Food Page </h1>
+                <h1>{this.state.food.date}</h1>
+                <div className="addEntryButtonDiv">
+                    <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
+                    <button className="addEntryButton" onClick={this.deleteFood}>Delete Food</button>
+                </div>
                 {this.state.updateFormInvisable === false ?
                     (<div>
-                        <div>{this.state.food.date}</div>
+                        <div className="singleFoodEntryContainer">
+                            <div className="entryText">{this.state.food.date}</div>
 
-                        <div>Breakfast: {this.state.food.breakfast} - {this.state.food.breakfastCal} Calories</div>
+                            <div className="entryText">Breakfast: {this.state.food.breakfast} - {this.state.food.breakfastCal} Calories</div>
 
-                        <div>Lunch: {this.state.food.lunch} - {this.state.food.lunchCal} Calories</div>
+                            <div className="entryText">Lunch: {this.state.food.lunch} - {this.state.food.lunchCal} Calories</div>
 
-                        <div>Dinner: {this.state.food.dinner} - {this.state.food.dinnerCal} Calories</div>
+                            <div className="entryText">Dinner: {this.state.food.dinner} - {this.state.food.dinnerCal} Calories</div>
 
-                        <div>Snacks: {this.state.food.snacks} - {this.state.food.snackCal} Calories</div>
+                            <div className="entryText">Snacks: {this.state.food.snacks} - {this.state.food.snackCal} Calories</div>
 
-                        <div>Total Calories: {this.state.food.breakfastCal + this.state.food.lunchCal + this.state.food.dinnerCal + this.state.food.snackCal} </div>
-                        <button onClick={this.toggleUpdateForm}>Edit Entry</button>
+                            <div className="entryText">Total Calories: {this.state.food.breakfastCal + this.state.food.lunchCal + this.state.food.dinnerCal + this.state.food.snackCal} </div>
+                        </div>
                     </div>)
                     : null}
                 {this.state.updateFormInvisable === true ?
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <input
                                     type='date'
                                     placeholder='date'
@@ -88,15 +93,15 @@ export default class SingleFood extends Component {
                                     value={this.state.food.date}
                                 />
                             </div>
-                            <div>
-                                <input
+                            <div className='inputBoxDiv'>
+                                <input className="foodUpdateInput"
                                     type='text'
                                     placeholder='breakfast'
                                     name='breakfast'
                                     onChange={this.onChange}
                                     value={this.state.food.breakfast}
                                 />
-                                <input
+                                <input className="foodUpdateInput"
                                     type='number'
                                     placeholder="breakfast calories"
                                     name='breakfastCal'
@@ -104,15 +109,15 @@ export default class SingleFood extends Component {
                                     value={this.state.food.breakfastCal}
                                 />
                             </div>
-                            <div>
-                                <input
+                            <div className='inputBoxDiv'>
+                                <input className="foodUpdateInput"
                                     type='text'
                                     placeholder='lunch'
                                     name='lunch'
                                     onChange={this.onChange}
                                     value={this.state.food.lunch}
                                 />
-                                <input
+                                <input className="foodUpdateInput"
                                     type='number'
                                     placeholder='lunch calories'
                                     name='lunchCal'
@@ -120,31 +125,31 @@ export default class SingleFood extends Component {
                                     value={this.state.food.lunchCal}
                                 />
                             </div>
-                            <div>
-                                <input
+                            <div className='inputBoxDiv'>
+                                <input className="foodUpdateInput"
                                     type='text'
                                     placeholder='dinner'
                                     name='dinner'
                                     onChange={this.onChange}
                                     value={this.state.food.dinner}
                                 />
-                                <input
+                                <input className="foodUpdateInput"
                                     type='number'
                                     placeholder='dinner calories'
                                     name='dinnerCal'
                                     onChange={this.onChange}
                                     value={this.state.food.dinnerCal}
                                 />
-                            </div>
-                            <div>
-                                <input
+                            </div >
+                            <div className='inputBoxDiv'>
+                                <input className="foodUpdateInput"
                                     type='text'
                                     placeholder='snacks'
                                     name='snacks'
                                     onChange={this.onChange}
                                     value={this.state.food.snacks}
                                 />
-                                <input
+                                <input className="foodUpdateInput"
                                     type='number'
                                     placeholde='snack calories'
                                     name='snackCal'
@@ -152,13 +157,13 @@ export default class SingleFood extends Component {
                                     value={this.state.food.snackCal}
                                 />
                             </div>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <input type="submit"
                                     value="Update Food" />
                             </div>
                         </form>
                     </div> : null}
-                <button onClick={this.deleteFood}>Delete Food</button>
+
             </div>
         )
     }

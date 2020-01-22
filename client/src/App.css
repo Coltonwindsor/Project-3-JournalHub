@@ -107,6 +107,7 @@ textarea {
 }
 .inputBoxDiv {
   padding: 10px;
+
   display: flex;
   justify-content: center;
 }
@@ -243,7 +244,12 @@ textarea {
   align-items: flex-start;
   flex-wrap: wrap;
 }
-
+.singleFoodEntryContainer {
+  text-align: center;
+}
+.foodUpdateInput {
+  margin-left: 20px;
+}
 .singleFoodContainer {
   border: solid black 3px;
   border-radius: 20px;

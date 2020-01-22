@@ -52,32 +52,35 @@ export default class SingleDream extends Component {
         return (
             <div className="dreamContainer">
                 {this.state.redirect === true ? <Redirect to='/dream' /> : null}
-                <h1>Single Dream Page </h1>
+                <h1>{this.state.dream.date} </h1>
+                <div className="addEntryButtonDiv">
+                    <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
+                    <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                </div>
                 {this.state.updateFormInvisable === false ?
-                    (<div>
-                        <div>{this.state.dream.date}</div>
-                        <div>{this.state.dream.category}</div>
-                        <div>{this.state.dream.description}</div>
-                        <button onClick={this.toggleUpdateForm}>Edit Entry</button>
+                    (<div className="singleEntryDiv">
+                        <div className="entryText">Category: {this.state.dream.category}</div>
+                        <div className="entryText">{this.state.dream.description}</div>
                     </div>) : null}
                 {this.state.updateFormInvisable === true ?
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <div>
-                                <input onChange={this.onChange}
+                            <div className='inputBoxDiv'>
+                                <input
+                                    onChange={this.onChange}
                                     type="date"
                                     name="date"
                                     placeholder='date'
                                     value={this.state.dream.date} />
                             </div>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <input onChange={this.onChange}
                                     type="text"
                                     name="category"
                                     placeholder='category'
                                     value={this.state.dream.category} />
                             </div>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <textarea rows="10" columns="50"
                                     onChange={this.onChange}
                                     type="text"
@@ -85,13 +88,12 @@ export default class SingleDream extends Component {
                                     placeholder='description'
                                     value={this.state.dream.description} />
                             </div>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <input type="submit"
                                     value="Update Dream" />
                             </div>
                         </form>
                     </div> : null}
-                <button onClick={this.deleteDream}>Delete Dream</button>
             </div>
         )
     }
