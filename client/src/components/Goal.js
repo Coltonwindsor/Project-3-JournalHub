@@ -7,7 +7,8 @@ export default class Goal extends Component {
         currentPoints: 0,
         goals: [],
         completed: [],
-        incomplete: []
+        incomplete: [],
+        isComplete: false
     }
 
     componentDidMount() {
@@ -41,11 +42,28 @@ export default class Goal extends Component {
 
 
     //this function will update the boolean to true for completed and then get all goals again
-    createCompletedGoal = (completedGoal) => {
-        axios.put(`/api/exercise`, completedGoal)
-            .then((res) => {
-                this.setState({ completed: res.data })
-            })
+    toggleIsComplete = (goalId) => {
+
+        console.log(goalId)
+        const toggle = !this.state.goals.isComplete
+        this.setState({ isComplete: toggle })
+        console.log(this.state.isComplete)
+
+    }
+
+    completeGoal = (completedGoal) => {
+
+        // const newState = { ...this.state }
+        // newState.isComplete = true
+        // this.setState({ newState })
+
+        console.log(this.state.goals)
+
+
+        // axios.put(`/api/exercise`, completedGoal)
+        //     .then((res) => {
+        //         this.setState({ completed: res.data })
+        //     })
     }
 
     // ------------------------------------------------------------------------
@@ -69,42 +87,47 @@ export default class Goal extends Component {
                     </div>
                     <h1>Goals</h1>
                     {this.state.goals.map((goal) => {
-                        return (
-                            <div>
-                                <div>
-                                    {goal.name}, {goal.description}, {goal.image}, {goal.pointValue}
+                        if (goal.isComplete === false) {
+                            return (
+                                < div >
+                                    <div>
+                                        {goal.name}, {goal.description}, {goal.image}, {goal.pointValue}
+                                    </div>
+                                    <div>
+                                        <button onClick={() => this.deleteGoal(goal._id)}>
+                                            Remove Goal
+                                        </button>
+                                        <button onClick={() => this.toggleIsComplete(goal._id)}>
+                                            Complete Goal
+                                        </button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button onClick={() => this.deleteGoal(goal._id)}>
-                                        Remove Goal
-                                    </button>
-                                    <button onClick={this.completeGoal}>
-                                        Complete Goal
-                                    </button>
-                                </div>
-                            </div>
-                        )
+                            )
+                        }
                     })}
+
                 </div>
                 <div>
                     <h1>Completed Goals</h1>
                     {this.state.completed.map((completedGoal) => {
-                        return (
-                            <div>
+                        if (completedGoal.isComplete === true) {
+                            return (
                                 <div>
-                                    {completedGoal.name}, {completedGoal.image}, {completedGoal.description}
+                                    <div>
+                                        {completedGoal.name}, {completedGoal.image}, {completedGoal.description}
+                                    </div>
+                                    <div>
+                                        <button>
+                                            Remove Goal
+                                        </button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button>
-                                        Remove Goal
-                                </button>
-                                </div>
-                            </div>
-                        )
+                            )
+                        }
                     })}
                 </div>
 
-            </div>
+            </div >
         )
     }
 }

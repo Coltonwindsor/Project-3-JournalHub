@@ -51,33 +51,36 @@ export default class SingleGeneral extends Component {
     render() {
         return (
             <div className="generalContainer">
+
                 {this.state.redirect === true ? <Redirect to='/general' /> : null}
-                <h1>Single General Thought Page </h1>
+
+                <h1>{this.state.general.title} - {this.state.general.date}</h1>
+                <div className="addEntryButtonDiv">
+                    <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
+                    <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                </div>
                 {this.state.updateFormInvisable === false ?
-                    (<div>
-                        <div>{this.state.general.date}</div>
-                        <div>{this.state.general.title}</div>
-                        <div>{this.state.general.entry}</div>
-                        <button onClick={this.toggleUpdateForm}>Edit Entry</button>
+                    (<div className="singleEntryDiv">
+                        <div className="entryText">{this.state.general.entry}</div>
                     </div>) : null}
                 {this.state.updateFormInvisable === true ?
                     <div>
                         <form onSubmit={this.onSubmit}>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <input onChange={this.onChange}
                                     type="date"
                                     name="date"
                                     placeholder='date'
                                     value={this.state.general.date} />
                             </div>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <input onChange={this.onChange}
                                     type="text"
                                     name="title"
                                     placeholder='title'
                                     value={this.state.general.title} />
                             </div>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <textarea
                                     columns="50"
                                     rows="10"
@@ -87,14 +90,14 @@ export default class SingleGeneral extends Component {
                                     placeholder='entry'
                                     value={this.state.general.entry} />
                             </div>
-                            <div>
+                            <div className='inputBoxDiv'>
                                 <input type="submit"
                                     value="Update Entry" />
                             </div>
 
                         </form>
                     </div> : null}
-                <button onClick={this.deleteGeneral}>Delete Entry</button>
+
             </div>
         )
     }
