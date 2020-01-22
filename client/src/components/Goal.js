@@ -104,16 +104,16 @@ export default class Goal extends Component {
                             {this.state.goals.map((goal) => {
                                 if (goal.isComplete === false) {
                                     return (
-                                        < div >
+                                        < div className="goalButtonContainer">
                                             <div className="singleGoalContainer">
                                                 {goal.name}, {goal.description}, {goal.pointValue}
                                             </div>
                                             <div className="addEntryButtonDiv">
                                                 <button className="addEntryButton" onClick={() => this.deleteGoal(goal._id)}>
-                                                    Remove Goal
+                                                    Remove
                                         </button>
                                                 <button className="addEntryButton" onClick={() => this.toggleIsComplete(goal)}>
-                                                    Complete Goal
+                                                    Complete
                                         </button>
                                             </div>
                                         </div>
