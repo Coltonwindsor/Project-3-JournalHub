@@ -53,10 +53,15 @@ export default class SingleDream extends Component {
             <div className="dreamContainer">
                 {this.state.redirect === true ? <Redirect to='/dream' /> : null}
                 <h1>{this.state.dream.date} </h1>
-                <div className="addEntryButtonDiv">
-                    <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
-                    <button className="addEntryButton" onClick={this.deleteDream}>Delete Entry</button>
-                </div>
+                {this.state.updateFormInvisable === false ?
+                    <div className="addEntryButtonDiv">
+                        <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
+                        <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                    </div> :
+                    <div className="addEntryButtonDiv">
+                        <button className="addEntryButton" onClick={this.toggleUpdateForm}>Back</button>
+                        <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                    </div>}
                 {this.state.updateFormInvisable === false ?
                     (<div className="singleEntryDiv">
                         <div className="entryText">Category: {this.state.dream.category}</div>

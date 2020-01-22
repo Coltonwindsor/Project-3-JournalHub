@@ -60,10 +60,15 @@ export default class SingleFood extends Component {
             <div className="foodContainer">
                 {this.state.redirect === true ? <Redirect to='/food' /> : null}
                 <h1>{this.state.food.date}</h1>
-                <div className="addEntryButtonDiv">
-                    <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
-                    <button className="addEntryButton" onClick={this.deleteFood}>Delete Food</button>
-                </div>
+                {this.state.updateFormInvisable === false ?
+                    <div className="addEntryButtonDiv">
+                        <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
+                        <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                    </div> :
+                    <div className="addEntryButtonDiv">
+                        <button className="addEntryButton" onClick={this.toggleUpdateForm}>Back</button>
+                        <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                    </div>}
                 {this.state.updateFormInvisable === false ?
                     (<div>
                         <div className="singleFoodEntryContainer">

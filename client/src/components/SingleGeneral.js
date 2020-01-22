@@ -55,10 +55,16 @@ export default class SingleGeneral extends Component {
                 {this.state.redirect === true ? <Redirect to='/general' /> : null}
 
                 <h1>{this.state.general.title} - {this.state.general.date}</h1>
-                <div className="addEntryButtonDiv">
-                    <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
-                    <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
-                </div>
+                {this.state.updateFormInvisable === false ?
+                    <div className="addEntryButtonDiv">
+                        <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
+                        <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                    </div> :
+                    <div className="addEntryButtonDiv">
+                        <button className="addEntryButton" onClick={this.toggleUpdateForm}>Back</button>
+                        <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                    </div>}
+
                 {this.state.updateFormInvisable === false ?
                     (<div className="singleEntryDiv">
                         <div className="entryText">{this.state.general.entry}</div>
