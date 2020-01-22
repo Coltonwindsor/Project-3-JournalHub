@@ -55,7 +55,7 @@ export default class SingleDream extends Component {
                 <h1>{this.state.dream.date} </h1>
                 <div className="addEntryButtonDiv">
                     <button className="addEntryButton" onClick={this.toggleUpdateForm}>Edit Entry</button>
-                    <button className="addEntryButton" onClick={this.deleteGeneral}>Delete Entry</button>
+                    <button className="addEntryButton" onClick={this.deleteDream}>Delete Entry</button>
                 </div>
                 {this.state.updateFormInvisable === false ?
                     (<div className="singleEntryDiv">
