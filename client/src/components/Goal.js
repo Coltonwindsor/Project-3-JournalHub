@@ -137,7 +137,7 @@ export default class Goal extends Component {
                                             <div>
                                                 <div className="singleGoalContainer">
                                                     <div>
-                                                        {goal.name}, {goal.image}, {goal.description}
+                                                        {goal.name}, {goal.description}
                                                     </div>
                                                 </div>
                                                 <div className="addEntryButtonDiv">

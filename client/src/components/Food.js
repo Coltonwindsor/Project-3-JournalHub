@@ -81,7 +81,7 @@ export default class Food extends Component {
                     <div className='addEntryButtonDiv'>
                         <button className="addEntryButton"
                             onClick={this.toggleAddFoodForm}>
-                            Add Food Journal Entry
+                            Add Entry
                        </button>
                     </div> :
                     <div className="addEntryButtonDiv">
