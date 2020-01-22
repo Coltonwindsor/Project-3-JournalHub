@@ -81,7 +81,7 @@ export default class SingleDream extends Component {
                                     value={this.state.dream.category} />
                             </div>
                             <div className='inputBoxDiv'>
-                                <textarea rows="10" columns="50"
+                                <textarea rows="10" cols="75"
                                     onChange={this.onChange}
                                     type="text"
                                     name="description"

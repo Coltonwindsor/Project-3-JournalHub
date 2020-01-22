@@ -4,11 +4,9 @@ import axios from 'axios'
 
 export default class Goal extends Component {
     state = {
-        currentPoints: 0,
         goals: [],
-        completed: [],
-        incomplete: [],
-        isComplete: false
+        completedGoals: [],
+        showCompletedGoals: false,
     }
 
     componentDidMount() {
@@ -20,6 +18,18 @@ export default class Goal extends Component {
             .then((res) => {
                 this.setState({ goals: res.data })
             })
+            .then(this.checkForCompletedGoals)
+    }
+
+    checkForCompletedGoals = () => {
+        let newState = { ...this.state }
+        newState.completedGoals = []
+        for (let i = 0; i < newState.goals.length; i++) {
+            if (newState.goals[i].isComplete === true) {
+                newState.completedGoals.push(newState.goals[i])
+            }
+        }
+        this.setState(newState)
     }
 
     createGoal = (exercise) => {
@@ -33,41 +43,24 @@ export default class Goal extends Component {
         axios.delete(`/api/exercise/${goalId}`)
             .then(this.getAllGoals)
     }
-    //Need Work on these functions --------------------------------------------
 
-    // given an array write a function that returns an array of all false completed
-    // given an array write a function that returns an array of all true completed
-    // map through arrays to render
-    // update function will flip boolean
-
-
-    //this function will update the boolean to true for completed and then get all goals again
-    toggleIsComplete = (goalId) => {
-
-        console.log(goalId)
-        const toggle = !this.state.goals.isComplete
-        this.setState({ isComplete: toggle })
-        console.log(this.state.isComplete)
-
+    toggleIsComplete = (goal) => {
+        goal.isComplete = true
+        axios.put(`/api/exercise/${goal._id}`, goal)
+            .then(this.checkForCompletedGoals)
     }
 
-    completeGoal = (completedGoal) => {
-
-        // const newState = { ...this.state }
-        // newState.isComplete = true
-        // this.setState({ newState })
-
-        console.log(this.state.goals)
-
-
-        // axios.put(`/api/exercise`, completedGoal)
-        //     .then((res) => {
-        //         this.setState({ completed: res.data })
-        //     })
+    toggleIsCompleteToFalse = (goal) => {
+        goal.isComplete = false
+        axios.put(`/api/exercise/${goal._id}`, goal)
+            .then(this.checkForCompletedGoals)
     }
 
-    // ------------------------------------------------------------------------
-
+    toggleShowCompletedGoals = () => {
+        let newState = { ...this.state }
+        newState.showCompletedGoals = !newState.showCompletedGoals
+        this.setState(newState)
+    }
 
 
     render() {
@@ -97,7 +90,7 @@ export default class Goal extends Component {
                                         <button onClick={() => this.deleteGoal(goal._id)}>
                                             Remove Goal
                                         </button>
-                                        <button onClick={() => this.toggleIsComplete(goal._id)}>
+                                        <button onClick={() => this.toggleIsComplete(goal)}>
                                             Complete Goal
                                         </button>
                                     </div>
@@ -108,23 +101,32 @@ export default class Goal extends Component {
 
                 </div>
                 <div>
-                    <h1>Completed Goals</h1>
-                    {this.state.completed.map((completedGoal) => {
-                        if (completedGoal.isComplete === true) {
-                            return (
-                                <div>
-                                    <div>
-                                        {completedGoal.name}, {completedGoal.image}, {completedGoal.description}
-                                    </div>
-                                    <div>
-                                        <button>
-                                            Remove Goal
+                    <h1>Completed Goals : {this.state.completedGoals.length}</h1>
+                    <div>
+                        <button onClick={this.toggleShowCompletedGoals}>Show Completed Goals</button>
+                    </div>
+                    <div>
+                        {this.state.showCompletedGoals === true ?
+                            <div>
+                                {this.state.goals.map((goal) => {
+
+                                    if (goal.isComplete === true) {
+                                        return (
+                                            <div>
+                                                <div>
+                                                    {goal.name}, {goal.image}, {goal.description}
+                                                </div>
+                                                <div>
+                                                    <button onClick={() => this.toggleIsCompleteToFalse(goal)}>
+                                                        Move back to goals
                                         </button>
-                                    </div>
-                                </div>
-                            )
-                        }
-                    })}
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                })}
+                            </div> : null}
+                    </div>
                 </div>
 
             </div >

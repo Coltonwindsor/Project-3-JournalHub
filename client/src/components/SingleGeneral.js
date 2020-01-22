@@ -82,7 +82,7 @@ export default class SingleGeneral extends Component {
                             </div>
                             <div className='inputBoxDiv'>
                                 <textarea
-                                    columns="50"
+                                    cols="75"
                                     rows="10"
                                     onChange={this.onChange}
                                     type="text"

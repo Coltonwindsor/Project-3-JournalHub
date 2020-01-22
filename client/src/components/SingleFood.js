@@ -159,7 +159,7 @@ export default class SingleFood extends Component {
                             </div>
                             <div className='inputBoxDiv'>
                                 <input type="submit"
-                                    value="Update Food" />
+                                    value="Update Entry" />
                             </div>
                         </form>
                     </div> : null}

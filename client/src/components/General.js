@@ -111,7 +111,7 @@ export default class General extends Component {
                                 </input>
                             </div>
                             <div className="inputBoxDiv">
-                                <textarea rows="10" columns="50"
+                                <textarea rows="10" cols="75"
                                     type='text'
                                     placeholder='Entry'
                                     name='entry'
