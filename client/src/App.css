@@ -309,8 +309,62 @@ textarea {
 /* General Thoughts CSS end */
 
 /* Exercise Journal CSS */
+.allExercisesList {
+  height: 100%;
+  width: 100%;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.singleExerciseContainer {
+  border: solid black 3px;
+  border-radius: 20px;
+  margin: 3px;
+  width: 150px;
+  height: 150px;
+  /* CHANGE THIS BACKGROUND IMAGE */
+  background-image: url(https://i.imgur.com/9727awX.png);
+  background-size: cover;
+  color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 15px;
+  text-shadow: 2px 2px 2px black;
+  box-shadow: 10px 9px 15px 0px rgba(0, 0, 0, 0.41);
+  padding: 5px;
+}
+.allGoalsList {
+  height: 100%;
+  width: 100%;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.singleGoalContainer {
+  border: solid black 3px;
+  border-radius: 20px;
+  margin: 3px;
+  width: 150px;
+  height: 150px;
+  /* CHANGE THIS BACKGROUND IMAGE */
+  background-image: url(https://i.imgur.com/9727awX.png);
+  background-size: cover;
+  color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 15px;
+  text-shadow: 2px 2px 2px black;
+  box-shadow: 10px 9px 15px 0px rgba(0, 0, 0, 0.41);
+  padding: 5px;
+}
 .goalContainer {
-  height: 100vh;
+  height: 100%;
   background-color: #ffffff;
   background-image: url("https://www.transparenttextures.com/patterns/lined-paper.png");
   background-repeat: repeat;

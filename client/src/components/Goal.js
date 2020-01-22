@@ -7,6 +7,8 @@ export default class Goal extends Component {
         goals: [],
         completedGoals: [],
         showCompletedGoals: false,
+        showExercises: true,
+        showGoals: false,
     }
 
     componentDidMount() {
@@ -61,13 +63,24 @@ export default class Goal extends Component {
         newState.showCompletedGoals = !newState.showCompletedGoals
         this.setState(newState)
     }
+    toggleShowGoals = () => {
+        let newState = { ...this.state }
+        newState.showGoals = !newState.showGoals
+        this.setState(newState)
+    }
+    toggleShowExercises = () => {
+        let newState = { ...this.state }
+        newState.showExercises = !newState.showExercises
+        this.setState(newState)
+    }
 
 
     render() {
         const allExercises = exercises.map((exercise) => {
             return (
-                <div>{exercise.name}, {exercise.description}, {exercise.image}, {exercise.pointValue}
-                    <button onClick={() => this.createGoal(exercise)}>Add to Goals</button>
+                <div>
+                    <div className="singleExerciseContainer">{exercise.name}, {exercise.description}, {exercise.pointValue}</div>
+                    <div className="addEntryButtonDiv"> <button className="addEntryButton" onClick={() => this.createGoal(exercise)}>Add to Goals</button> </div>
                 </div>
             )
         })
@@ -75,51 +88,62 @@ export default class Goal extends Component {
             <div className="goalContainer">
                 <div>
                     <h1>Exercises</h1>
-                    <div className="allExercisesList">
-                        {allExercises}
+                    <div className='addEntryButtonDiv'>
+                        <button className="addEntryButton" onClick={this.toggleShowExercises}>Show Exercises</button>
                     </div>
+                    {this.state.showExercises === true ?
+                        <div className="allExercisesList">
+                            {allExercises}
+                        </div> : null}
                     <h1>Goals</h1>
-                    {this.state.goals.map((goal) => {
-                        if (goal.isComplete === false) {
-                            return (
-                                < div >
-                                    <div>
-                                        {goal.name}, {goal.description}, {goal.image}, {goal.pointValue}
-                                    </div>
-                                    <div>
-                                        <button onClick={() => this.deleteGoal(goal._id)}>
-                                            Remove Goal
+                    <div className='addEntryButtonDiv'>
+                        <button className="addEntryButton" onClick={this.toggleShowGoals}>Show Goals</button>
+                    </div>
+                    {this.state.showGoals === true ?
+                        <div className="allGoalsList">
+                            {this.state.goals.map((goal) => {
+                                if (goal.isComplete === false) {
+                                    return (
+                                        < div >
+                                            <div className="singleGoalContainer">
+                                                {goal.name}, {goal.description}, {goal.pointValue}
+                                            </div>
+                                            <div className="addEntryButtonDiv">
+                                                <button className="addEntryButton" onClick={() => this.deleteGoal(goal._id)}>
+                                                    Remove Goal
                                         </button>
-                                        <button onClick={() => this.toggleIsComplete(goal)}>
-                                            Complete Goal
+                                                <button className="addEntryButton" onClick={() => this.toggleIsComplete(goal)}>
+                                                    Complete Goal
                                         </button>
-                                    </div>
-                                </div>
-                            )
-                        }
-                    })}
-
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            })}
+                        </div> : null}
                 </div>
                 <div>
                     <h1>Completed Goals : {this.state.completedGoals.length}</h1>
-                    <div>
-                        <button onClick={this.toggleShowCompletedGoals}>Show Completed Goals</button>
+                    <div className='addEntryButtonDiv'>
+                        <button className="addEntryButton" onClick={this.toggleShowCompletedGoals}>Show Completed Goals</button>
                     </div>
                     <div>
                         {this.state.showCompletedGoals === true ?
-                            <div>
+                            <div className="allGoalsList">
                                 {this.state.goals.map((goal) => {
 
                                     if (goal.isComplete === true) {
                                         return (
                                             <div>
-                                                <div>
-                                                    {goal.name}, {goal.image}, {goal.description}
+                                                <div className="singleGoalContainer">
+                                                    <div>
+                                                        {goal.name}, {goal.image}, {goal.description}
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <button onClick={() => this.toggleIsCompleteToFalse(goal)}>
+                                                <div className="addEntryButtonDiv">
+                                                    <button className="addEntryButton" onClick={() => this.toggleIsCompleteToFalse(goal)}>
                                                         Move back to goals
-                                        </button>
+                                                    </button>
                                                 </div>
                                             </div>
                                         )
