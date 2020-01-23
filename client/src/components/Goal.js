@@ -79,8 +79,19 @@ export default class Goal extends Component {
         const allExercises = exercises.map((exercise) => {
             return (
                 <div>
-                    <div className="singleExerciseContainer">{exercise.name}, {exercise.description}, {exercise.pointValue}</div>
+
+
+                    <div className="singleExerciseContainer">
+                        {exercise.name}, {exercise.description}, {exercise.pointValue}
+
+
+                    </div>
                     <div className="addEntryButtonDiv"> <button className="addEntryButton" onClick={() => this.createGoal(exercise)}>Add to Goals</button> </div>
+
+
+
+
+
                 </div>
             )
         })
