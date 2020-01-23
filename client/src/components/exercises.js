@@ -58,5 +58,23 @@ export default [
         description: '5 sets of 25',
         pointValue: 30,
         isComplete: false
+    },
+    {
+        name: 'Bench Press',
+        description: '3 sets of 5',
+        pointValue: 10,
+        isComplete: false
+    },
+    {
+        name: 'Bench Press',
+        description: '3 sets of 10',
+        pointValue: 20,
+        isComplete: false
+    },
+    {
+        name: 'Bench Press',
+        description: '5 sets of 10',
+        pointValue: 30,
+        isComplete: false
     }
 ]
